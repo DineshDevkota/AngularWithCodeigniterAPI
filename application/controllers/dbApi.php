@@ -10,7 +10,7 @@ class dbApi extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("ConectDB");
+       $this->load->database();
     }
 
     public function Index()
@@ -82,9 +82,9 @@ class dbApi extends CI_Controller
         $this->PrettyPrintToJSON($query->result());
         return json_encode($query->result());
     }
-    public function GetSongs()
+    public function GetS()
     {
-        $query = $this->db->get('song');
+        $query = $this->db->get('rodie');
         $this->PrettyPrintToJSON($query->result());
         return json_encode($query->result());
     }

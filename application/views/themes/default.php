@@ -110,8 +110,7 @@ body {
 				</a> <img
 					src="<?php echo base_url(); ?>assets/themes/default/img/logo1.png"
 					style="width: 32px; float: left; margin-top: 5px; z-index: 5"
-					alt="logo" /> <a class="brand" href="<?php echo site_url(); ?>">&nbsp;&nbsp;The
-					DB PROJECT CMPS 439</a>
+					alt="logo" /> <a class="brand" href="<?php echo site_url(); ?>">&nbsp;&nbsp;Warped Tour Directory</a>
 				<div style="height: 0px;" class="nav-collapse collapse">
 					<ul class="nav">
 						<li class="active"><a href="<?php echo site_url(); ?>">Home</a></li>

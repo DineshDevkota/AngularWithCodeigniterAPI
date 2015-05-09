@@ -1,4 +1,4 @@
-<h1>Associated Warped tours.</h1>
+<h1>Associated Artists</h1>
                 <!-- content wrapper -->
                 <div class="content-wrap">
 
@@ -12,20 +12,20 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Date</th>
-                                                    <th>City</th>
-                                                    <th>State</th>
-                                                    <th>Admissioin Price</th>
+                                                    <th>Artist Name</th>
+                                                    <th>Position</th>
+                                                    <th>Functionality</th>
+                                                    
                                                 </tr>
                                             </thead>
                                             <tbody>
                                             <?php foreach($data as $key=>$value){?>
                                                 <tr>
                                                     <td><?php echo $key+1;?></td>
-                                                    <td><?php echo $value->Date;?></td>
-                                                    <td><?php echo $value->City;?></td>
-                                                    <td><?php echo $value->State;?></td>
-                                                    <td><?php echo $value->AdmissioinPrice;?></td>
+                                                    <td><?php echo $value->ArtistName;?></td>
+                                                    <td><?php echo $value->Position;?></td>
+                                                    <td><?php echo "to band"+$value->BandID;?></td>
+                                                    
                                                 </tr>                                                
                                            <?php  }?>                                             
                                             </tbody>
