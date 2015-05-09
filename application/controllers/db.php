@@ -17,9 +17,8 @@ class DB extends CI_Controller {
 	{
 		$this->output->set_template('default');
 		$this->load->js('assets/themes/default/js/jquery-1.9.1.min.js');
-		$this->load->js('assets/themes/default/hero_files/bootstrap-transition.js');
-		$this->load->js('assets/themes/default/hero_files/bootstrap-collapse.js');
-		$this->load->js('assets/themes/default/js/angular.min.js');
+		$this->load->js('http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js');
+		$this->load->js('assets/themes/default/js/custom.js');
 	}
 
 	public function index()
