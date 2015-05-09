@@ -33,20 +33,61 @@ class dbApi extends CI_Controller
     }
     
 
-    public function GetWarpedTour()
+    public function GetWarpedTours()
     {
         $query = $this->db->get('warpedtour');    
         $this->PrettyPrintToJSON($query->result());   
                
         return json_encode($query->result());
     }
-    public function GetStage()
+    public function GetStages()
     {
         $query = $this->db->get('stage'); 
         $this->PrettyPrintToJSON($query->result());  
         return json_encode($query->result());
     }
-    
+    public function GetAlbumns()
+    {
+        $query = $this->db->get('album');
+        $this->PrettyPrintToJSON($query->result());
+        return json_encode($query->result());
+    }
+    public function GetArtists()
+    {
+        $query = $this->db->get('artist');
+        $this->PrettyPrintToJSON($query->result());
+        return json_encode($query->result());
+    }
+    public function GetBands()
+    {
+        $query = $this->db->get('band');
+        $this->PrettyPrintToJSON($query->result());
+        return json_encode($query->result());
+    }
+    public function GetGenres()
+    {
+        $query = $this->db->get('genre');
+        $this->PrettyPrintToJSON($query->result());
+        return json_encode($query->result());
+    }
+    public function GetOrganizers()
+    {
+        $query = $this->db->get('organizer');
+        $this->PrettyPrintToJSON($query->result());
+        return json_encode($query->result());
+    }
+    public function GetRodies()
+    {
+        $query = $this->db->get('rodie');
+        $this->PrettyPrintToJSON($query->result());
+        return json_encode($query->result());
+    }
+    public function GetSongs()
+    {
+        $query = $this->db->get('song');
+        $this->PrettyPrintToJSON($query->result());
+        return json_encode($query->result());
+    }
     public function GetStageByWarpedTourID($id=False)
     {
         if(!$id){
