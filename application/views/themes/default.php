@@ -60,6 +60,11 @@ body {
 ?>
 
     <!-- Le styles -->
+   
+    <!-- /page level plugin styles -->
+
+    <!-- core styles -->
+
 <link
 	href="<?php echo base_url(); ?>assets/themes/default/hero_files/bootstrap.css"
 	rel="stylesheet">
@@ -74,6 +79,8 @@ body {
 	rel="stylesheet">
 <link href="<?php echo base_url(); ?>assets/themes/default/css/db.css"
 	rel="stylesheet">
+	 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/chosen.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/jquery.datatables.css">
 
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
@@ -104,10 +111,15 @@ body {
 					src="<?php echo base_url(); ?>assets/themes/default/img/logo1.png"
 					style="width: 32px; float: left; margin-top: 5px; z-index: 5"
 					alt="logo" /> <a class="brand" href="<?php echo site_url(); ?>">&nbsp;&nbsp;The
-					DB PROJECT</a>
+					DB PROJECT CMPS 439</a>
 				<div style="height: 0px;" class="nav-collapse collapse">
 					<ul class="nav">
 						<li class="active"><a href="<?php echo site_url(); ?>">Home</a></li>
+						<li class="active"><a href="/db/warpedtour">Warpedtour</a></li>
+						<li class="active"><a href="/db/artist">Artist</a></li>
+						<li class="active"><a href="/db/band">Band</a></li>
+						<li class="active"><a href="/db/genre">Genre</a></li>
+						<li class="active"><a href="/db/sponsor">Sponsors</a></li>
 
 					</ul>
 				</div>
@@ -137,6 +149,26 @@ body {
 		</footer>
 
 	</div>
-	<!-- /container -->
+	<script src="<?php echo base_url(); ?>assets/plugins/jquery-1.11.1.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.js"></script>
+    <script src="<?php echo base_url(); ?>assets/plugins/jquery.slimscroll.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/plugins/jquery.easing.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/plugins/jquery.appear.js"></script>
+    <script src="<?php echo base_url(); ?>assets/plugins/jquery.placeholder.js"></script>
+    <script src="<?php echo base_url(); ?>assets/plugins/fastclick.js"></script>
+    <!-- /core scripts -->
+
+    <!-- page level scripts -->
+    <script src="<?php echo base_url(); ?>assets/plugins/chosen.jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/plugins/jquery.dataTables.js"></script>
+    <!-- /page level scripts -->
+
+   
+
+    <!-- page script -->
+    <script src="<?php echo base_url(); ?>assets/js/bootstrap-datatables.js"></script>
+    <script>
+    $('.custom-table').DataTable();
+    </script>
 </body>
 </html>

@@ -1,11 +1,8 @@
-	<h1>Welcome to 439 The Database Class</h1>
+	<h1>Welcome to CMPS 439 The Database Class Project</h1>
 
 	<div id="body">
-		<p>We gonna do Some Angular JS here! Full API for DB will be vailable</p>
+		<p>We gonna do some DB demonstration here. Lots of datatable :D</p>
 		<div id="cy"></div>
 	</div>
 	
-	<div class="myapp">
-		<h2>Examples</h2>
-		
-	</div>
+	
