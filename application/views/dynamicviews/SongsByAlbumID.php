@@ -1,4 +1,4 @@
-<h1>Associated Songs</h1>
+<h1>Associated Songs from <?php echo $data[0]->BandName; ?>  </h1>
                 <!-- content wrapper -->
                 <div class="content-wrap">
 
@@ -12,14 +12,16 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Name of Song</th>         
+                                                    <th>Songs </th>
+                                                    
                                                 </tr>
                                             </thead>
                                             <tbody>
                                             <?php foreach($data as $key=>$value){?>
                                                 <tr>
                                                     <td><?php echo $key+1;?></td>
-                                                    <td><?php echo $value->Title;?></td>                                                                                                                                                          
+                                                    <td><?php echo $value->Title;?></td>  
+                                                                                                                                                                                                           
                                                 </tr>                                                
                                            <?php  }?>                                             
                                             </tbody>                                           

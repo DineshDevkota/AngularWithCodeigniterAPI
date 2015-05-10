@@ -16,10 +16,8 @@ class db extends CI_Controller {
 
 	private function _init()
 	{
-		$this->output->set_template('default');
-			
+		$this->output->set_template('default');			
 	}
-
 	public function index()
 	{
 		$this->load->view('navviews/welcome');
@@ -55,7 +53,7 @@ class db extends CI_Controller {
 	     $this->load->view('navviews/album',$viewvalue);
 	 }
 	 public function song(){
-	     $data=json_decode($this->ConectDB->GetSongs());
+	     $data=json_decode($this->ConectDB->GetSongsWithDetails());
 	     $viewvalue=array('data'=>$data);
 	     $this->load->view('navviews/song',$viewvalue);
 	     
@@ -110,7 +108,7 @@ class db extends CI_Controller {
 	     if(!$id){
 	         show_404();
 	     }else{
-	         $data=json_decode($this->ConectDB->GetSongsByAlbumID($id));
+	         $data=json_decode($this->ConectDB->GetSongsWithDetailsByAlbumID($id));
 	         $viewvalue=array('data'=>$data);
 	         $this->load->view('dynamicviews/SongsByAlbumID',$viewvalue);
 	     }
@@ -124,8 +122,4 @@ class db extends CI_Controller {
 	         $this->load->view('dynamicviews/BandsByStageID',$viewvalue);
 	     }
 	 }
-	 
-	 
-	 
-
 }

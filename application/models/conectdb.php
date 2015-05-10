@@ -278,12 +278,27 @@ class ConectDB extends CI_Model {
     public function GetSongsWithDetails(){
         $this->db->select('*')
         ->from('song')
+        ->order_by('SongID', 'RANDOM')
         ->join('band', 'band.BandID=song.BandID')
         ->join('genre', 'genre.GenreID=band.GenreID')
         ->join('album', 'album.AlbumID=song.AlbumID');
         $query = $this->db->get();
         return json_encode($query->result());
     
+    }
+ public function GetSongsWithDetailsByAlbumID($id=False){
+        if(!$id){
+            $this->PrettyPrintToJSON(Array());
+            return json_encode(Array());
+        }
+        $this->db->select('*')
+        ->from('song')
+        ->where("AlbumID",$id)
+        ->join('band', 'band.BandID=song.BandID')
+        ->join('genre', 'genre.GenreID=band.GenreID')
+        ;
+        $query = $this->db->get();
+        return json_encode($query->result());    
     }
     
 }

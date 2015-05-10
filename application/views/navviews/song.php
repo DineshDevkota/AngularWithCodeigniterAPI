@@ -12,15 +12,22 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Name of Song</th>         
+                                                    <th>Name of Song</th> 
+                                                    <th>Band</th>
+                                                    <th>Genre</th> 
+                                                    <th>Album</th>
+                                                    <th>Release Date</th>       
                                                 </tr>
                                             </thead>
                                             <tbody>
                                             <?php foreach($data as $key=>$value){?>
                                                 <tr>
                                                     <td><?php echo $key+1;?></td>
-                                                    <td><?php echo $value->Title;?></td>    
-                                                                                                                                                      
+                                                    <td><?php echo $value->Title;?></td>  
+                                                     <td><?php echo $value->BandName;?></td> 
+                                                     <td><?php echo $value->GenreName;?></td> 
+                                                     <td><?php echo $value->AlbumName;?></td>
+                                                     <td><?php echo $value->ReleaseDate;?></td>                                                                                                                                                                                                           
                                                 </tr>                                                
                                            <?php  }?>                                             
                                             </tbody>
