@@ -1,89 +1,1502 @@
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
--- Table structure for table `Sponsor`
---
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
-CREATE TABLE IF NOT EXISTS `Sponsor` (
+CREATE TABLE IF NOT EXISTS `album` (
+  `AlbumID` int(100) NOT NULL,
+  `AlbumName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `ReleaseDate` date NOT NULL,
+  `BandID` int(100) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO `album` (`AlbumID`, `AlbumName`, `ReleaseDate`, `BandID`) VALUES
+(1, '\r\nWe Stitch These Wounds', '2010-07-20', 1),
+(2, 'Set the World on Fire', '2011-06-14', 1),
+(3, 'Wretched and Divine: The Story of the Wild Ones', '2013-01-08', 1),
+(4, 'Black Veil Brides', '2014-10-27', 1),
+(5, 'The Summer EP', '2009-06-23', 2),
+(6, 'What Is Love?', '2010-01-28', 2),
+(7, 'Harmony', '2010-08-24', 2),
+(8, 'Time Travel', '2011-09-20', 2),
+(9, 'Indigo', '2012-11-13', 2),
+(10, 'A Flair for the Drama', '2007-06-26', 3),
+(11, 'Selfish Machines', '2010-06-22', 3),
+(12, 'Collide with the Sky', '2012-07-17', 3),
+(15, 'Ground Dweller', '2012-03-13', 4),
+(16, 'Unimagine', '2013-07-23', 4),
+(17, 'Boy Games', '2011-02-14', 5),
+(18, 'His Last Walk', '2007-04-10', 6),
+(19, 'Witness', '2009-10-06', 6),
+(20, 'Awakening', '2011-10-04', 6),
+(21, 'Hollow Bodies', '2013-08-20', 6),
+(22, 'H2O', '1996-06-25', 7),
+(23, 'Thicker Than Water', '1997-10-07', 7),
+(24, 'F.T.T.W.', '1999-05-18', 7),
+(25, 'Go', '2001-10-21', 7),
+(26, 'Nothing To Prove', '2008-05-27', 7),
+(27, 'Let It Enfold You', '2004-09-07', 8),
+(28, 'Still Searching', '2006-10-10', 8),
+(29, 'Life Is Not a Waiting Room', '2008-10-07', 8),
+(30, 'Discovering the Waterfront', '2005-08-16', 9),
+(31, 'A Shipwreck in the Sand', '2009-03-31', 9),
+(32, 'This Is How The Wind Shifts', '2013-02-05', 9),
+(33, 'Guilty Pleasure', '2014-11-24', 10),
+(34, 'Found in Far Away Places', '2015-06-30', 11),
+(35, 'Tracing Back Roots', '2013-07-23', 12),
+(37, 'Skeletons', '2013-10-29', 13),
+(38, 'Disgusting', '2014-06-10', 15),
+(39, 'From Death to Destiny', '2013-08-06', 16),
+(40, 'Apocalyze ', '2013-09-03', 17),
+(41, 'Let The Ocean Take Me', '2014-06-06', 18),
+(42, 'Beloved', '2014-02-18', 19),
+(43, 'Ungrateful', '2013-05-14', 20),
+(44, 'Heart Attack', '2013-05-28', 21),
+(45, 'The Greatest Generation', '2013-05-14', 22),
+(46, 'Life Lessons', '2014-07-08', 23),
+(47, 'Mend, Move On ', '2014-11-04', 24),
+(48, 'Wishful Thinking', '2014-01-14', 25),
+(49, 'Go', '2012-06-12', 26),
+(50, 'Time Stands Still', '2014-08-05', 27),
+(51, 'Joyride', '2014-08-14', 28),
+(52, 'Only Forever', '2014-10-07', 29),
+(53, 'Soho Lights', '2008-10-28', 30),
+(54, 'Mind Games', '2015-01-13', 31),
+(55, 'M4', '2014-08-19', 32),
+(56, 'Black Boots', '2011-05-26', 33),
+(57, 'ChrisB', '2015-01-05', 34),
+(58, 'The Greatest Hits EP', '2005-04-22', 35),
+(59, 'Le Castle Vania', '2015-02-04', 36);
+
+
+CREATE TABLE IF NOT EXISTS `artist` (
+  `ArtistID` int(100) NOT NULL,
+  `ArtistName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `Position` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `BandID` int(100) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=172 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO `artist` (`ArtistID`, `ArtistName`, `Position`, `BandID`) VALUES
+(1, 'Andy Biersack', 'Vocals', 1),
+(2, 'Ashley Purdy', 'Bass', 1),
+(3, 'Jinxx', 'Guitar', 1),
+(4, 'Guitar', 'Jake Pitts', 1),
+(5, 'Cristian "CC" Coma', 'Drums', 1),
+(6, 'Christofer Drew', 'Vocals/Guitar', 2),
+(7, 'Hayden Kaiser', 'Drums', 2),
+(8, 'Taylor McFee', 'Bass', 2),
+(9, 'Ian Crawford', 'Guitar', 2),
+(10, 'Vic Vuentes', 'Vocals', 3),
+(11, 'Mike Fuentes', 'Drums', 3),
+(12, 'Tony Perry', 'Guitar', 3),
+(13, 'Jamie Preciado', 'Bass', 3),
+(14, 'Trenton Woodley', 'Vocals', 4),
+(15, 'Matt "Coops" Cooper', 'Guitar', 4),
+(16, 'Alexander Pearson', 'Guitar', 4),
+(17, 'Joel Tyrrell', 'Bass', 4),
+(18, 'Matt Parkitny', 'Drums', 4),
+(19, 'Cheska', 'Vocals/Guitar', 5),
+(20, 'Harley', 'Drums', 5),
+(21, 'John', 'Guitar', 5),
+(22, 'Blue', 'Bass', 5),
+(23, 'Jared Warth', 'Bass/Unclean Vocals', 6),
+(24, 'Matt Traynor', 'Drums', 6),
+(25, 'Eric Lambert', 'Guitar', 6),
+(26, 'Beau Bokan', 'Clean Vocals', 6),
+(27, 'Elliott Gruenberg', 'Guitar', 6),
+(28, 'Toby Morse', 'Vocals', 7),
+(29, 'Todd Morse', 'Guitar/Vocals', 7),
+(30, 'Rusty Pistachio', 'Guitar/Vocals', 7),
+(31, 'Todd Friend', 'Drums', 7),
+(32, 'Adam Blake', 'Bass', 7),
+(38, 'Buddy Nielsen', 'Vocals', 8),
+(39, 'Zack Roach', 'Guitar', 8),
+(40, 'Matt Smith', 'Guitar', 8),
+(41, 'Gavin Caswell', 'Bass', 8),
+(42, 'Chris Hornbrook', 'drums', 8),
+(43, 'Paul Koehler', 'Drums', 9),
+(44, 'Josh Bradford', 'Guitar', 9),
+(45, 'Billy Hamilton', 'Bass', 9),
+(46, 'Shane Told', 'Vocals', 9),
+(47, 'Paul Marc Rousseau', 'Guitar', 9),
+(52, 'Chris Fronzak', 'Vocals', 10),
+(53, 'Sean Heenan', 'Drums', 10),
+(54, 'Chris Linck', 'Guitar', 10),
+(55, 'Kalan Blehm', 'Bass', 10),
+(56, 'JB Brubaker', 'Guitar', 11),
+(57, 'Brent Rambler', 'Guitar', 11),
+(58, 'Matt Greiner', 'Drums', 11),
+(59, 'Jake Luhrs', 'Vocals', 11),
+(60, 'Dustin Davidson', 'Bass', 11),
+(61, 'Joshua Moore', 'Guitar', 12),
+(62, 'Andy Glass', 'Bass', 12),
+(63, 'Eric Choi', 'Drums', 12),
+(64, 'Lou Cotton', 'Guitar', 12),
+(65, 'Dave Stephens', 'Unclean Vocals', 12),
+(66, 'Kyle Pavone', 'Clean Vocals', 12),
+(67, 'Kyle Bihrle', 'Vocals', 13),
+(68, 'Todd Golder', 'Guitar', 13),
+(69, 'Doug Court', 'Drums', 13),
+(70, 'Jimm Lindsley', 'Guitar', 13),
+(71, 'Steve Goupil', 'Bass', 13),
+(72, 'Ryan Kirby', 'Bass/Clean Vocals', 14),
+(73, 'Ryan "Tuck" O''Leary', 'Vocals', 14),
+(74, 'Bobby Lynge', 'Guitar', 14),
+(75, 'Jared Easterling', 'Drums', 14),
+(76, 'Caleb Shomo', 'Vocals', 15),
+(77, 'Taylor Lumley', 'Guitar', 15),
+(78, 'Brandon Mullins', 'Drums', 15),
+(79, 'Kamron Bradbury', 'Guitar', 15),
+(80, 'Oshie Bichar', 'Bass', 15),
+(81, 'Ben Bruce\r\n', 'Guitar/Vocals', 16),
+(82, 'James Cassells\r\n', 'Drums', 16),
+(83, 'Cameron Liddell\r\n', 'Guitar', 16),
+(84, 'Sam Bettley', 'Bass', 16),
+(85, 'Koie Kenta', 'Vocals', 17),
+(86, 'Takemura Kazuki', 'Guitar', 17),
+(87, 'Amano Tatsuya', 'Drums', 17),
+(88, 'Tamano Terufumi', 'Keyboard', 17),
+(89, 'Ikegawa Hirok', 'Bass', 17),
+(90, 'Joel Birch', 'Unclean Vocals', 18),
+(91, 'Ahren Stringer', 'Vocals/Bass', 18),
+(92, 'Dan Brown', 'Guitar', 18),
+(93, 'Ryan Burt', 'Drums', 18),
+(94, 'Jona Weinhofen', 'Guitar', 19),
+(95, 'Kevin Cameron', 'Guitar', 19),
+(96, 'Jamie Hope', 'Unclean Vocals', 19),
+(97, 'Shane O''Brienbr', 'Drums', 19),
+(98, 'Benjamin Coyte', 'Bass', 19),
+(99, 'Robert Ortiz', 'Drums', 20),
+(100, 'Craig Mabbitt', 'Vocals', 20),
+(101, 'TJ Bell', 'Guitar', 20),
+(102, 'Kevin Gruft', 'Guitar', 20),
+(103, 'Zac Eisenstein', 'Vocals', 21),
+(104, 'Justin Collier', 'Guitar', 21),
+(105, 'Wayne Wildrick', 'Guitar', 21),
+(106, 'Joe Talarico', 'Drums', 21),
+(107, 'Nik Bruzzese', 'Vocals/Bass', 21),
+(114, 'Nick Steinborn\r\n', 'Guitar', 22),
+(115, 'Dan Campbell\r\n', 'Vocals', 22),
+(116, 'Josh Martin\r\n', 'Bass', 22),
+(117, 'Matt Brasch\r\n', 'Guitar', 22),
+(118, 'Casey Cavaliere\r\n', 'Guitar', 22),
+(119, 'Mike Kennedy', 'Drums', 22),
+(120, 'Taylor Edby\r\n', 'Vocals', 23),
+(121, 'Brandon Pagano\r\n', 'Vocals/Guitar', 23),
+(122, 'Kyle Vaught\r\n', 'Guitar', 23),
+(123, 'Ryan Pyle\r\n', 'Drums', 23),
+(124, 'CJ Wilson', 'Bass', 23),
+(125, 'John Floreani', 'Vocals', 24),
+(126, 'Jeremy Wincheste', 'Bass', 24),
+(127, 'Andrew Hallett', 'Guitar', 24),
+(128, 'Kevin Cross', 'Guitar', 24),
+(129, 'Callum Cramp', 'Drums', 24),
+(130, 'Ben Barlow\r\n', 'Vocals', 25),
+(131, 'Lloyd Roberts\r\n', 'Guitar', 25),
+(132, 'Matt West\r\n', 'Guitar', 25),
+(133, 'Fil Thorpe-Evans\r\n', 'Bass', 25),
+(134, 'Dani Washington', 'Drums', 25),
+(135, 'Joshua Cain\r\n', 'Guitar', 26),
+(136, 'Justin Pierre\r\n', 'Vocals/Guitar', 26),
+(137, 'Jesse Johnson\r\n', 'Keyboard', 26),
+(138, 'Matthew Taylor\r\n', 'Bass', 26),
+(139, 'Claudio Rivera', 'Drums', 26),
+(140, 'Jacob Olds (Crouton)\r\n', 'Vocals', 27),
+(141, 'Joshua Olds (Fatty)\r\n', 'Bass', 27),
+(142, 'Nathan Currin (Nadaddy)\r\n', 'Synthesiser/Vocals', 27),
+(143, 'Derek Mount (Chap Stique)\r\n', 'Guitar', 27),
+(144, 'Teddy Boldt (Hollywood)', 'Drums', 27),
+(145, 'Joe Boynton\r\n', 'Vocals', 28),
+(146, 'Torre Cioffi\r\n', 'Guitar', 28),
+(147, 'P.J. Jefferson\r\n', 'Bass', 28),
+(148, 'Daniel Frazier', 'Drums', 28),
+(149, '\r\nJairus Kersey\r\n\r\n', 'Vocals', 29),
+(150, 'David Knox\r\n   ', 'Bass', 29),
+(151, 'Joel Riley\r\n    ', 'Drums', 29),
+(152, 'Dakota Dufloth', 'Guitar', 29),
+(153, 'Tatiana DeMaria', 'Vocals/Guitar', 30),
+(154, 'Nick Kent', 'Bass', 30),
+(155, 'Jake Reed', 'Drums', 30),
+(156, 'Lou Miceli\r\n', 'Vocals', 31),
+(157, 'Aaron Rosa\r\n', 'Drums', 31),
+(158, 'Xavier Adames\r\n', 'Guitar', 31),
+(159, 'Matthew Marshall\r\n', 'Guitar', 31),
+(160, 'Brandon Reese\r\n', 'Bass', 31),
+(161, 'Earl Halasan', 'DJ', 31),
+(162, 'Nick Boundy', 'DJ/Launchpad Master', 32),
+(163, 'Lightknife', 'Member', 33),
+(164, 'Mikey X', 'Member', 33),
+(165, 'Chris B.', 'DJ', 34),
+(166, 'Nick Coyle\r\n', 'Vocals', 35),
+(167, 'Christopher Bones', 'Drums', 35),
+(168, 'Mike Morgan\r\n', 'Bass', 35),
+(169, 'Chris Bishop\r\n', 'Guitar', 35),
+(170, 'Peshi', 'Guitar', 35),
+(171, 'DJ Dylan', 'DJ', 36);
+
+
+CREATE TABLE IF NOT EXISTS `band` (
+  `BandID` int(100) NOT NULL,
+  `BandName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `GenreID` int(100) NOT NULL,
+  `StageID` int(100) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO `band` (`BandID`, `BandName`, `GenreID`, `StageID`) VALUES
+(1, 'Black Veil Brides', 1, 1),
+(2, 'Never Shout Never', 1, 2),
+(3, 'Pierce The Veil', 1, 1),
+(4, 'Hands Like Houses', 1, 9),
+(5, 'A+ Dropouts', 1, 1),
+(6, 'Blessthefall', 2, 6),
+(7, 'H2O', 2, 3),
+(8, 'Senses Fail', 2, 4),
+(9, 'Silverstein', 2, 4),
+(10, 'Attila', 3, 2),
+(11, 'August Burns Red', 3, 2),
+(12, 'We Came As Romans', 3, 2),
+(13, 'Sirens and Sailors', 3, 6),
+(14, 'Fit For A King', 3, 6),
+(15, 'Beartooth', 3, 2),
+(16, 'Asking Alexandria', 4, 6),
+(17, 'Crossfaith', 4, 4),
+(18, 'The Amity Affliction', 4, 9),
+(19, 'I Killed The Prom Queen', 4, 9),
+(20, 'Escape The Fate', 4, 4),
+(21, 'Man Overboard', 5, 8),
+(22, 'The Wonder Years', 5, 8),
+(23, 'Handguns', 5, 3),
+(24, 'Trophy Eyes', 5, 3),
+(25, 'Neck Deep', 5, 3),
+(26, 'Motion City Soundtrack', 6, 9),
+(27, 'Family Force 5', 6, 7),
+(28, 'Transit', 6, 8),
+(29, 'Alive Like Me', 6, 7),
+(30, 'TAT', 6, 7),
+(31, 'Palisades', 7, 5),
+(32, 'M4Sonic', 7, 5),
+(33, 'Black Boots', 8, 10),
+(34, 'ChrisB', 8, 10),
+(35, 'Drama Club', 8, 5),
+(36, 'LeCastle Vania', 8, 10);
+
+
+CREATE TABLE IF NOT EXISTS `genre` (
+  `GenreID` int(100) NOT NULL,
+  `GenreName` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO `genre` (`GenreID`, `GenreName`) VALUES
+(1, 'Rock'),
+(2, 'Hardcore'),
+(3, 'Metal'),
+(4, 'Metalcore'),
+(5, 'Pop-Punk'),
+(6, 'Alternative'),
+(7, 'Dance'),
+(8, 'Electronic');
+
+
+CREATE TABLE IF NOT EXISTS `organizer` (
+  `OrdID` int(100) NOT NULL,
+  `FName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `LName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `Address` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `City` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `State` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `Zip` int(100) NOT NULL,
+  `JobTitle` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `PayRate` int(100) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO `organizer` (`OrdID`, `FName`, `LName`, `Address`, `City`, `State`, `Zip`, `JobTitle`, `PayRate`) VALUES
+(1, 'James', 'West', '4848 Parkway Dr', 'Baton Rouge', 'LA', 70816, 'Director of Operations', 30),
+(2, 'Clint', 'Stein', '8930 Glen Davis Dr', 'Columbus', 'OH', 43218, 'Stage Construction', 20),
+(3, 'Chad', 'Beard', '87302 Holomoana St', 'Oahu', 'HI', 96815, 'Lights Operator', 22),
+(4, 'Nicolas', 'Magazine', '3248 Great Mountain Dr.', 'Denver', 'CO', 80204, 'Security', 24),
+(5, 'Julio', 'Romero', '108 Beach Front Ave.', 'Miami', 'Florida', 33126, 'Security', 24);
+
+
+CREATE TABLE IF NOT EXISTS `rodie` (
+  `RID` int(100) NOT NULL,
+  `Rname` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `BandID` int(100) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO `rodie` (`RID`, `Rname`, `BandID`) VALUES
+(1, 'Hunter Soileau', 1),
+(2, 'Bobby Massey', 11),
+(3, 'Shelby Hamilton', 9),
+(4, 'Cody Morgan', 18),
+(5, 'Christopher Walker', 25),
+(6, 'Jay Tulk', 16),
+(7, 'Cortlan Guillory', 35),
+(8, 'Holden Jones', 22),
+(9, 'Sarah Mackay', 17),
+(10, 'Jake Reinholtz', 27);
+
+
+CREATE TABLE IF NOT EXISTS `role` (
+  `RoleID` int(100) NOT NULL,
+  `RoleName` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO `role` (`RoleID`, `RoleName`) VALUES
+(1, 'Admin'),
+(2, 'WebAdmin'),
+(3, 'User');
+
+
+CREATE TABLE IF NOT EXISTS `song` (
+  `SongID` int(100) NOT NULL,
+  `Title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `AlbumID` int(100) NOT NULL,
+  `BandID` int(100) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=608 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO `song` (`SongID`, `Title`, `AlbumID`, `BandID`) VALUES
+(1, 'The Outcasts(Call to Arms)', 1, 1),
+(2, 'We Stitch These Wounds', 1, 1),
+(3, 'Beautiful Remains', 1, 1),
+(4, 'Children Surrender', 1, 1),
+(5, 'Perfect Weapon', 1, 1),
+(6, 'Knives and Pens', 1, 1),
+(7, 'The Mortician''s Daughter', 1, 1),
+(8, 'All Your Hate', 1, 1),
+(9, 'Heaven''s Calling', 1, 1),
+(10, 'Never Give In', 1, 1),
+(11, 'Sweet Blasphemy', 1, 1),
+(12, 'Carolyn', 1, 1),
+(13, 'New Religion', 2, 1),
+(14, 'Set The Woods on Fire', 2, 1),
+(15, 'Fallen Angels', 2, 1),
+(16, 'Love Isn''t Always Fair', 2, 1),
+(17, 'God Bless You', 2, 1),
+(18, 'Rebel Love Song', 2, 1),
+(19, 'Saviour', 2, 1),
+(20, 'The Legacy', 2, 1),
+(21, 'Die For You', 2, 1),
+(22, 'Ritual', 2, 1),
+(23, 'Youth & Whisky', 2, 1),
+(24, 'Exordium', 3, 1),
+(25, 'I Am Bulletproof', 3, 1),
+(26, 'New Years Day', 3, 1),
+(27, 'F.E.A.R Transmission 1: Stay Close', 3, 1),
+(28, 'Wretched and Divine', 3, 1),
+(29, 'We Don''t Belong', 3, 1),
+(30, 'F.E.A.R Transmission 2: Trust', 3, 1),
+(31, 'Devil''s Choir', 3, 1),
+(32, 'Resurrect the Sun', 3, 1),
+(33, 'Overture', 3, 1),
+(34, 'Shadows Die', 3, 1),
+(35, 'Abeyance', 3, 1),
+(36, 'Days Are Numbered', 3, 1),
+(37, 'Done For You', 3, 1),
+(38, 'Nobody''s Hero', 3, 1),
+(39, 'Lost It All', 3, 1),
+(40, 'F.E.A.R Transmission 3: As War Fades', 3, 1),
+(41, 'In The End', 3, 1),
+(42, 'F.E.A.R: Final Transmission', 3, 1),
+(43, 'Heart Of Fire', 4, 1),
+(44, 'Faithless', 4, 1),
+(45, 'Devil In The Mirror', 4, 1),
+(46, 'Goodbye Agony', 4, 1),
+(47, 'World Of Sacrifice', 4, 1),
+(48, 'Last Rites', 4, 1),
+(49, 'Stolen Omen', 4, 1),
+(50, 'Walk Away', 4, 1),
+(51, 'Drag Me To The Grave', 4, 1),
+(52, 'The Shattered God', 4, 1),
+(53, 'Crown Of Thorns', 4, 1),
+(54, 'Happy', 5, 2),
+(55, 'Hummingbird', 5, 2),
+(56, 'I Just Laugh', 2, 5),
+(57, 'I Just Laugh', 5, 2),
+(58, 'Simple Enough', 5, 2),
+(59, 'On the Brightside', 5, 2),
+(60, 'Losing It', 5, 2),
+(61, 'Love Is Our Weapon', 6, 2),
+(62, 'Jane Doe', 6, 2),
+(63, 'Can''t Stand It', 6, 2),
+(64, 'I Love You', 6, 2),
+(65, 'California', 6, 2),
+(66, 'What Is Love', 6, 2),
+(67, 'The Past', 6, 2),
+(68, 'Harmony', 7, 2),
+(69, 'This Shit Getz Old', 7, 2),
+(70, 'CheaterCheaterBestFriendEater', 7, 2),
+(71, 'Lovesick', 7, 2),
+(72, 'Piggy Bank', 7, 2),
+(73, 'I Love You More Than You Will Ever Know', 7, 2),
+(74, 'First Dance', 7, 2),
+(75, 'Lousy Truth', 7, 2),
+(76, 'Trampoline', 7, 2),
+(77, 'Sweet Perfection', 7, 2),
+(78, 'Sellout', 7, 2),
+(79, 'Time Travel', 8, 2),
+(80, 'Awful', 8, 2),
+(81, 'Silver Ecstasy', 8, 2),
+(82, 'Simplistic Trance-Like Getaway', 8, 2),
+(83, 'Robot', 8, 2),
+(84, 'Until I Die Alone', 8, 2),
+(85, 'Until I Die Alone', 8, 2),
+(86, 'Complex Heart', 8, 2),
+(87, 'Lost At Sea', 8, 2),
+(88, 'Magic', 9, 2),
+(89, 'All Mine', 9, 2),
+(90, 'Life Goes On', 9, 2),
+(91, 'Sorry', 9, 2),
+(92, 'Between Two Worlds', 9, 2),
+(93, 'Lust', 9, 2),
+(94, 'California Slang', 9, 2),
+(95, 'Wrong Side Of Town', 9, 2),
+(96, 'Honey-Dew', 9, 2),
+(97, 'The Look', 9, 2),
+(98, 'Hazel Eyez', 9, 2),
+(99, 'Chemical Kids and Mechanical Brides', 10, 3),
+(100, 'Currents Convulsive', 10, 3),
+(101, 'Yeah Boy and Doll Face', 10, 3),
+(102, 'I''d Rather Die Than be Famous', 10, 3),
+(103, 'The Cheap Bouquet', 10, 3),
+(104, 'Falling Asleep On A Stranger', 10, 3),
+(105, 'She Sings in the Morning', 10, 3),
+(106, 'The Balcony Scene', 10, 3),
+(107, 'Drella', 10, 3),
+(108, 'Diamonds and Why Men Buy Them', 10, 3),
+(109, 'Wonderless', 10, 3),
+(110, 'Besitos', 11, 3),
+(111, 'Southern Constellations', 11, 3),
+(112, 'The Boy Who Could Fly', 11, 3),
+(113, 'Caraphernelia', 11, 3),
+(114, 'Fast Times at Clairmont High', 11, 3),
+(115, 'The New National Anthem', 11, 3),
+(116, 'Bulletproof Love', 11, 3),
+(117, 'Stay Away from my Friends', 11, 3),
+(118, 'I Don''t Care If You''re Contagious', 11, 3),
+(119, 'Disasterology', 11, 3),
+(120, 'Million Dollar Houses', 11, 3),
+(121, 'The Sky Under The Sea', 11, 3),
+(122, 'May These Noises Startle You In Your Sleep Tonight', 12, 3),
+(123, 'Hell Above', 12, 3),
+(124, 'A Match into Water', 12, 3),
+(125, 'King For a Day', 12, 3),
+(126, 'Bulls in the Bronx', 12, 3),
+(127, 'Props & Mayhem', 12, 3),
+(128, 'Tangled in the Great Escape', 12, 3),
+(129, 'I''m Low on Gas and You Need a Jacket', 12, 3),
+(130, 'The First Punch', 12, 3),
+(131, 'One Hundred Sleepless Nights', 12, 3),
+(132, 'Stained Glass Eyes and Color Tears', 12, 3),
+(133, 'Hold On Till May', 12, 3),
+(134, 'Antarctica', 15, 4),
+(135, 'Don''t Look Now, I''m Being Followed. Act Normal', 15, 4),
+(136, 'Spineless Crow', 15, 4),
+(137, 'Starving to Death in the Belly of a Whale', 15, 4),
+(138, 'A Clown and His Pipe', 15, 4),
+(139, 'The Definition of Not-Leaving', 15, 4),
+(140, 'Lion Skin', 15, 4),
+(141, 'One Hundred', 15, 4),
+(142, 'Watchmaker', 15, 4),
+(143, 'The Sower', 15, 4),
+(144, 'Developments', 16, 4),
+(145, 'Introduced Species', 16, 4),
+(146, 'Weight', 16, 4),
+(147, 'Shapeshifters', 16, 4),
+(148, 'The House You Built', 16, 4),
+(149, 'A Tale Of Outer Suburbia', 16, 4),
+(150, 'Oceandust', 16, 4),
+(151, 'No Parallels', 16, 4),
+(152, 'Fountainhead', 16, 4),
+(153, 'Wisteria', 16, 4),
+(154, 'A Fire On A Hil', 16, 4),
+(155, 'Boy Games', 17, 5),
+(156, 'Typical', 17, 5),
+(157, 'My Fault', 17, 5),
+(158, 'Alone', 17, 5),
+(159, 'Never Lying', 17, 5),
+(160, 'On Your Own', 17, 5),
+(161, 'Just a Memory', 17, 5),
+(162, 'Someone New', 17, 5),
+(163, 'End of Us', 17, 5),
+(164, 'A Message to the Unknown', 18, 6),
+(165, 'Guys Like You Make Us Look Bad', 18, 6),
+(166, 'Higinia', 18, 6),
+(167, 'Could Tell a Love', 18, 6),
+(168, 'Rise Up', 18, 6),
+(169, 'Times Like These', 18, 6),
+(170, 'Pray', 18, 6),
+(171, 'With Eyes Wide Shut', 18, 6),
+(172, 'Wait for Tomorrow', 18, 6),
+(173, 'Black Rose Dying', 18, 6),
+(174, 'His Last Walk', 18, 6),
+(175, 'Rise Up (Acoustic)', 18, 6),
+(176, 'I Wouldn''t Quit If Everyone Quit', 18, 6),
+(177, '2.0', 19, 6),
+(178, 'What''s Left of Me', 19, 6),
+(179, 'To Hell & Back', 19, 6),
+(180, 'God Wears Gucci', 19, 6),
+(181, 'Hey Baby, Here''s That Song You Wanted', 19, 6),
+(182, 'Witness', 19, 6),
+(183, 'Last Ones Left', 19, 6),
+(184, 'Five Ninety', 19, 6),
+(185, 'We''ll Sleep When We''re Dead', 19, 6),
+(186, 'Skinwalkers', 19, 6),
+(187, 'You Deserve Nothing & I Hope You Get Less', 19, 6),
+(188, 'Stay Still', 19, 6),
+(189, 'Awakening', 20, 6),
+(190, 'Promised Ones', 20, 6),
+(191, 'Bottomfeeder', 20, 6),
+(192, 'I''m Bad News, in the Best Way', 20, 6),
+(193, 'The Reign', 20, 6),
+(194, '40 Days..', 20, 6),
+(195, 'Bones Crew', 20, 6),
+(196, 'Don''t Say Goodbye', 20, 6),
+(197, 'Undefeated', 20, 6),
+(198, 'Till the Death of Me', 20, 6),
+(199, 'Flatline (Interlude)', 20, 6),
+(200, 'Meet Me at the Gates', 20, 6),
+(201, 'Exodus', 21, 6),
+(202, 'You Wear a Crown, But You''re No King', 21, 6),
+(203, 'Hollow Bodies', 21, 6),
+(204, 'Déjà Vu', 21, 6),
+(205, 'Buried In these Walls', 21, 6),
+(206, 'See You On the Outside', 21, 6),
+(207, 'Youngbloods', 21, 6),
+(208, 'Standing On the Ashes', 21, 6),
+(209, 'Carry On', 21, 6),
+(210, 'The Sound of Starting Over', 21, 6),
+(211, 'Open Water', 21, 6),
+(212, '5 Yr. Plan', 22, 7),
+(213, 'Scene Report', 22, 7),
+(214, 'Spirit of ''84', 22, 7),
+(215, 'I Know Why', 22, 7),
+(216, 'Gen-Eric', 22, 7),
+(217, 'Surrounded', 22, 7),
+(218, 'Here Today, Gone Tomorrow', 22, 7),
+(219, 'Family Tree', 22, 7),
+(220, 'Hi-Lo', 22, 7),
+(221, 'My Curse', 22, 7),
+(222, 'Go!', 22, 7),
+(223, 'Mask', 22, 7),
+(224, 'Universal Language', 23, 7),
+(225, 'Everready', 23, 7),
+(226, 'Talk Too Much', 23, 7),
+(227, 'I See It in Us', 23, 7),
+(228, 'Sacred Heart', 23, 7),
+(229, 'Innocent Kids', 23, 7),
+(230, 'Scarred', 23, 7),
+(231, 'Go', 23, 7),
+(232, 'This Time', 23, 7),
+(233, 'Friend', 23, 7),
+(234, 'A Plus', 23, 7),
+(235, 'Phone Song', 23, 7),
+(236, 'Responsible', 23, 7),
+(237, 'Wake Up', 23, 7),
+(238, 'Thicker than Water', 23, 7),
+(239, 'No Fucking Tears', 23, 7),
+(240, 'Faster Than the World', 24, 7),
+(241, 'Empty Pockets', 24, 7),
+(242, 'One Life, One Chance', 24, 7),
+(243, 'Guilty by Association', 24, 7),
+(244, 'Fading', 24, 7),
+(245, 'Bootstraps', 24, 7),
+(246, 'Can I Overcome?', 24, 7),
+(247, 'Found the Truth Within', 24, 7),
+(248, 'Old School Recess', 24, 7),
+(249, 'Helpless Not Hopeless', 24, 7),
+(250, 'On Your Feet', 24, 7),
+(251, 'Day by Day', 24, 7),
+(252, 'Force Field', 24, 7),
+(253, 'Ez.2.B. Anti', 24, 7),
+(254, 'M & M', 24, 7),
+(255, 'Reputation Calls', 24, 7),
+(256, 'Liberate', 24, 7),
+(257, 'Follow the Three Way', 24, 7),
+(258, 'Tie Her Down', 27, 8),
+(259, 'Lady in a Blue Dress', 27, 8),
+(260, 'You''re Cute When You Scream', 27, 8),
+(261, 'Buried a Lie', 27, 8),
+(262, 'Bite to Break Skin', 27, 8),
+(263, 'Rum Is for Drinking, Not for Burning', 27, 8),
+(264, 'Slow Dance', 27, 8),
+(265, 'Choke on This', 27, 8),
+(266, 'NJ Falls Into the Atlantic', 27, 8),
+(267, 'Let It Enfold You', 27, 8),
+(268, 'Irony of Dying On Your Birthday', 27, 8),
+(269, 'Angela Baker and My Obsession With Fire', 27, 8),
+(270, 'Martini Kiss', 27, 8),
+(271, 'The Rapture', 28, 8),
+(272, 'Bonecrusher', 28, 8),
+(273, 'Sick or Sane (Fifty for a Twenty)', 28, 8),
+(274, 'Can''t Be Saved', 28, 8),
+(275, 'Calling All Cars', 28, 8),
+(276, 'Shark Attack', 28, 8),
+(277, 'Still Searching', 28, 8),
+(278, 'To All the Crowded Rooms', 28, 8),
+(279, 'Lost and Found', 28, 8),
+(280, 'Every Day Is a Struggle', 28, 8),
+(281, 'All the Best Cowboys Have Daddy Issues', 28, 8),
+(282, 'Negative Space', 28, 8),
+(283, 'The Priest and the Matador', 28, 8),
+(284, 'Fireworks at Dawn', 29, 9),
+(285, 'Lungs Like Gallows', 29, 8),
+(286, 'Garden State', 29, 8),
+(287, 'Family Tradition', 29, 8),
+(288, 'Wolves at the Door', 29, 8),
+(289, 'Hair of the Dog', 29, 8),
+(290, 'Four Years', 29, 8),
+(291, 'Ali for Cody', 29, 8),
+(292, 'Yellow Angels', 29, 8),
+(293, 'Chandelier', 29, 8),
+(294, 'Map the Streets', 29, 8),
+(295, 'Blackout', 8, 29),
+(296, 'Your Sword versus My Dagger', 30, 9),
+(297, 'Smile in Your Sleep', 30, 9),
+(298, 'The Ides of March', 30, 9),
+(299, 'Fist Wrapped in Blood', 30, 9),
+(300, 'Discovering the Waterfront', 30, 9),
+(301, 'Defend You', 30, 9),
+(302, 'My Heroine', 30, 9),
+(303, 'Always and Never', 30, 9),
+(304, 'Already Dead', 30, 9),
+(305, 'Three Hours Back', 30, 9),
+(306, 'Call It Karma', 30, 9),
+(307, 'A Great Fire', 31, 9),
+(308, 'Vices', 31, 9),
+(309, 'Broken Stars', 31, 9),
+(310, 'American Dream', 31, 9),
+(311, 'Their Lips Sink Ships', 31, 9),
+(312, 'I Knew I Couldn''t Trust You', 31, 9),
+(313, 'Born Dead', 31, 9),
+(314, 'A Shipwreck in the Sand', 31, 9),
+(315, 'I Am the Arsonist', 31, 9),
+(316, 'You''re All I Have', 31, 9),
+(317, 'We Are Not the World', 31, 9),
+(318, 'A Hero Loses Everyday', 31, 9),
+(319, 'The Tide Raises Every Ship', 31, 9),
+(320, 'The End', 31, 9),
+(321, 'Stand Amid the Roar', 32, 9),
+(322, 'On Brave Mountains We Conquer', 32, 9),
+(323, 'Massachusetts', 32, 9),
+(324, 'This Is How', 32, 9),
+(325, 'A Better Place', 32, 9),
+(326, 'Hide Your Secrets', 32, 9),
+(327, 'Arrivals', 32, 9),
+(328, 'In a Place of Solace', 32, 9),
+(329, 'In Silent Seas We Drown', 32, 9),
+(330, 'California', 32, 9),
+(331, 'To Live and to Lose', 32, 9),
+(332, 'The Wind Shifts', 32, 9),
+(333, 'With Second Chances', 32, 9),
+(334, 'Departures', 32, 9),
+(335, 'Pizza, Sex, and Trolls', 33, 10),
+(336, 'Hate Me', 33, 10),
+(337, 'Rebel', 33, 10),
+(338, 'Guilty Pleasure', 33, 10),
+(339, 'I''ve Got Your Back', 33, 10),
+(340, 'Proving Grounds', 33, 10),
+(341, 'I Am Satan', 33, 10),
+(342, 'Break My Addiction', 33, 10),
+(343, 'Horsepig', 33, 10),
+(344, 'Dirty Dirty', 33, 10),
+(345, 'Fake Friends', 33, 10),
+(346, 'Don''t Be Basic', 33, 10),
+(347, 'The Cure', 33, 10),
+(348, 'The Wake', 34, 11),
+(349, 'Martyr', 34, 11),
+(350, 'Identity', 34, 11),
+(351, 'Separating the Seas', 34, 11),
+(352, 'Ghosts', 34, 11),
+(353, 'Majoring in the Minors', 34, 11),
+(354, 'Everlasting Ending', 34, 11),
+(355, 'Broken Promises', 34, 11),
+(356, 'Blackwood', 34, 11),
+(357, 'Twenty-One Grams', 34, 11),
+(358, 'Vanguard', 34, 11),
+(359, 'Marathon', 34, 11),
+(360, 'Majoring in the Minors', 34, 11),
+(361, 'Identity', 34, 11),
+(362, 'Tracing Back Roots', 35, 12),
+(363, 'Fade Away', 35, 12),
+(364, 'I Survive', 35, 12),
+(365, 'Ghosts', 35, 12),
+(366, 'Present, Future, and Past', 35, 12),
+(367, 'Never Let Me Go', 35, 12),
+(368, 'Hope', 35, 12),
+(369, 'Tell Me Now', 35, 12),
+(370, 'A Moment', 35, 12),
+(371, 'I Am Free', 35, 12),
+(372, 'Through the Darkest Dark and Brightest Bright', 35, 12),
+(373, 'Inception', 37, 13),
+(374, 'The Chosen One', 37, 13),
+(375, 'Go fo the Throat', 37, 13),
+(376, 'Straightjacket', 37, 13),
+(377, 'Excorcist', 37, 13),
+(378, 'Not That Easy', 37, 13),
+(379, 'Reflection', 37, 13),
+(380, 'Born & Raised (Flower City)', 37, 13),
+(381, 'Calm Before the Storm', 37, 13),
+(382, 'Weight of the World', 37, 13),
+(383, 'Holdfast', 37, 13),
+(384, 'Skeletons', 37, 13),
+(385, 'The Lines', 38, 15),
+(386, 'Beaten in Lips', 38, 15),
+(387, 'Body Bag', 38, 15),
+(388, 'In Between', 38, 15),
+(389, 'Relapsing', 38, 15),
+(390, 'Ignorance Is Bliss', 38, 15),
+(391, 'I Have a Problem', 38, 15),
+(392, 'One More', 38, 15),
+(393, 'Me in My Own Head', 38, 15),
+(394, 'Keep Your American Dream', 38, 15),
+(395, 'Dead', 38, 15),
+(396, 'Sick & Disgusting', 38, 15),
+(397, 'Don''t Pray for Me', 39, 16),
+(398, 'Killing You', 39, 16),
+(399, 'The Death of Me', 39, 16),
+(400, 'Run Free', 39, 16),
+(401, 'Break Down the Walls', 39, 16),
+(402, 'Poison', 39, 16),
+(403, 'Believe', 39, 16),
+(404, 'Creature', 39, 16),
+(405, 'White Line Fever', 39, 16),
+(406, 'Moving On', 39, 16),
+(407, 'The Road', 39, 16),
+(408, 'Until the End', 39, 16),
+(409, 'The Death of Me (Rock Mix)', 39, 16),
+(410, 'Prelude', 40, 17),
+(411, 'We Are The Future', 40, 17),
+(412, 'Hounds Of The Apocalypse', 40, 17),
+(413, 'Eclipse', 40, 17),
+(414, 'The Evolution', 40, 17),
+(415, 'Scarlett', 40, 17),
+(416, 'Gala Hala (Burn Down the Floor)', 40, 17),
+(417, 'Countdown To Hell', 40, 17),
+(418, 'Deathwish', 40, 17),
+(419, 'Counting Stars', 40, 17),
+(420, 'Burning White', 40, 17),
+(421, 'Only The Wise Can Control Our Eyes', 40, 17),
+(422, 'Pittsburgh', 41, 18),
+(423, 'Lost & Fading', 41, 18),
+(424, 'Don''t Lean on Me', 41, 18),
+(425, 'The Weigh Down', 41, 18),
+(426, 'Never Alone', 41, 18),
+(427, 'Death''s Hand', 41, 18),
+(428, 'F.M.L (Find My Light)', 41, 18),
+(429, 'My Father''s Son', 41, 18),
+(430, 'Forest Fire', 41, 18),
+(431, 'Give It All', 41, 18),
+(432, 'Beginning of the End', 42, 19),
+(433, 'To the Wolves', 42, 19),
+(434, 'Bright Enough', 42, 19),
+(435, 'Melior', 42, 19),
+(436, 'Thirty One & Sevens', 42, 19),
+(437, 'Calvert Street', 42, 19),
+(438, 'Kjærlighet', 42, 19),
+(439, 'The Beaten Path', 42, 19),
+(440, 'Nightmares', 42, 19),
+(441, 'No One Will Save Us', 42, 19),
+(442, 'Brevity', 42, 19),
+(443, 'Ungrateful', 43, 20),
+(444, 'Until We Die', 43, 2),
+(445, 'Live Fast, Die Beautiful', 43, 20),
+(446, 'Forget About Me', 43, 20),
+(447, 'You''re Insane', 43, 20),
+(448, 'Chemical Love', 43, 20),
+(449, 'Picture Perfect', 43, 20),
+(450, 'Risk It Al', 43, 20),
+(451, 'Desire', 43, 20),
+(452, 'One for the Money', 43, 20),
+(453, 'Fire It Up', 43, 20),
+(454, 'Secret Pain', 44, 21),
+(455, 'Boy Without Batteries', 44, 21),
+(456, 'Where I Left You', 44, 21),
+(457, 'Heart Attack', 44, 21),
+(458, 'White Lies', 44, 21),
+(459, 'S.A.D.', 44, 21),
+(460, 'Suppy', 44, 21),
+(461, 'How To Hide Your Feelings', 44, 21),
+(462, 'Swan Dive', 44, 21),
+(463, 'Hoodie Song', 44, 21),
+(464, 'Re Run', 44, 21),
+(465, 'Open Season', 44, 21),
+(466, 'Damage Control', 44, 21),
+(467, 'Wide Awake', 44, 21),
+(468, 'There, There', 45, 22),
+(469, 'Passing Through a Screen Door', 45, 22),
+(470, 'We Could Die Like This', 45, 22),
+(471, 'Dismantling Summer', 45, 22),
+(472, 'The Bastards, the Vultures, the Wolves', 45, 22),
+(473, 'The Devil in My Bloodstream', 45, 22),
+(474, 'Teenage Parents', 45, 22),
+(475, 'Chaser', 45, 22),
+(476, 'An American Religion (FSF)', 45, 22),
+(477, 'A Raindance in Traffic', 45, 22),
+(478, 'Madelyn', 45, 22),
+(479, 'Cul-de-sac', 45, 22),
+(480, 'I Just Want to Sell Out My Funeral', 45, 22),
+(481, 'Anvil', 46, 23),
+(482, 'Sleep Deprived', 46, 23),
+(483, 'Highway Robbery', 46, 23),
+(484, 'Heart Vs. Head', 46, 23),
+(485, 'I Can''t Relate', 46, 23),
+(486, 'The Loved Ones Who Hate Us', 46, 23),
+(487, 'Queens', 46, 23),
+(488, 'Give and Take', 46, 23),
+(489, 'Waiting For You Ghost', 46, 23),
+(490, 'New Years Resolution', 46, 23),
+(491, 'My Name On Paper', 47, 24),
+(492, 'Come Clean', 47, 24),
+(493, 'Convalescence', 47, 24),
+(494, 'Family Name', 47, 24),
+(495, 'Responsibility and Structure', 47, 24),
+(496, 'Best Man', 47, 24),
+(497, 'In Return', 47, 24),
+(498, 'White Curtains', 47, 24),
+(499, 'Choke', 47, 24),
+(500, 'Ugly Pattern', 47, 24),
+(501, 'Penfold State Forest', 47, 24),
+(502, 'Losing Teeth', 48, 25),
+(503, 'Crushing Grief (No Remedy)', 48, 25),
+(504, 'Staircase Wi', 48, 25),
+(505, 'Damsel in Distress', 48, 25),
+(506, 'Zoltar Speaks', 48, 25),
+(507, 'Growing Pains', 48, 25),
+(508, 'Say What You Want', 48, 25),
+(509, 'Mileage', 48, 25),
+(510, 'Sweet Nothings', 48, 25),
+(511, 'What Did You Expect?', 48, 25),
+(512, 'Blank Pages', 48, 25),
+(513, 'Candour', 48, 25),
+(514, 'Circuits and Wires', 49, 26),
+(515, 'True Romance', 49, 26),
+(516, 'Son of a Gun', 49, 26),
+(517, 'Timelines', 49, 26),
+(518, 'Everyone Will Die', 49, 26),
+(519, 'The Coma Kid', 49, 26),
+(520, 'Boxelder', 49, 26),
+(521, 'The Worst Is Yet to Come', 49, 26),
+(522, 'Bad Idea', 49, 26),
+(523, 'Happy Anniversary', 49, 26),
+(524, 'Floating Down the River', 49, 26),
+(525, 'Bottom Feeder', 49, 26),
+(526, 'Give Up/Give In', 49, 26),
+(527, 'Alcohol Eyes', 49, 26),
+(528, 'Sweep the Leg', 50, 27),
+(529, 'Bzrk', 50, 27),
+(530, 'Show Love', 50, 27),
+(531, 'Time Stands Still', 50, 27),
+(532, 'Walk on Water', 50, 27),
+(533, 'Glow in the Dark', 50, 27),
+(534, 'Raised by Wolves', 50, 27),
+(535, 'Jet Pack Kicks', 50, 27),
+(536, 'Xray', 50, 27),
+(537, 'Let It Be Love', 50, 27),
+(538, 'Everybody Lose Your Mind', 50, 27),
+(539, 'Dance Like Nobody''s Watching', 50, 27),
+(540, 'When Everything''s Changing', 50, 27),
+(541, 'Never Say Never', 50, 27),
+(542, 'This Is My Year', 50, 27),
+(543, 'The Only One', 51, 28),
+(544, 'Saturday Sunday', 51, 28),
+(545, 'Rest to Get Better', 51, 28),
+(546, 'Sweet Resistance', 51, 28),
+(547, 'Nothing Left To Lose', 51, 28),
+(548, 'Ignition & Friction', 51, 28),
+(549, 'Fine By Me', 51, 28),
+(550, 'Loneliness Burns', 51, 28),
+(551, 'Summer Dust', 51, 28),
+(552, 'Too Little, Too Late', 51, 28),
+(553, 'Pin and Needles', 51, 28),
+(554, 'Follow Me', 51, 28),
+(555, 'Better Off', 52, 28),
+(556, 'Slip Away', 52, 29),
+(557, 'What Did You Expect', 52, 29),
+(558, 'Our Time Down Here', 52, 29),
+(559, 'Start Again', 52, 29),
+(560, 'Only Forever', 52, 29),
+(561, 'Wreckage', 52, 29),
+(562, 'Searching For Endings', 52, 29),
+(563, 'Lost Without Me', 52, 29),
+(564, 'Meant For This', 52, 29),
+(565, 'Never Looking Back', 52, 29),
+(566, 'Road To Paradise', 53, 30),
+(567, 'Sympathetic Lies', 53, 30),
+(568, 'Pessimist', 53, 30),
+(569, 'Stay Up', 53, 30),
+(570, 'I Don''t Want To (Love You)', 53, 30),
+(571, 'Everything I Want', 53, 30),
+(572, 'Here''s To You', 53, 30),
+(573, 'Diamond Child', 53, 30),
+(574, 'Taking It All', 53, 30),
+(575, 'Take You Home', 53, 30),
+(576, 'Sandra Dee', 53, 30),
+(577, 'You Hero', 53, 30),
+(578, 'Live For Rock', 53, 30),
+(579, 'Player Haters'' Ball', 54, 31),
+(580, 'No Chaser', 54, 31),
+(581, 'Bad Girls', 54, 31),
+(582, 'Mind Games', 54, 31),
+(583, 'Whatever You Want It to Be', 54, 31),
+(584, 'Afraid', 54, 31),
+(585, 'People Like Us', 54, 31),
+(586, 'Like a Drug', 54, 31),
+(587, 'True Blood', 54, 31),
+(588, 'Come Over and Watch Netflix', 54, 31),
+(589, 'Weapon 2.0', 55, 32),
+(590, 'Virus', 55, 32),
+(591, 'Chaos', 55, 32),
+(592, 'Blood Forever', 56, 33),
+(593, 'Back Seat Driver', 56, 33),
+(594, 'Little Miss Nothing', 56, 33),
+(595, 'See Right Through You', 56, 33),
+(596, 'Mixes', 57, 34),
+(597, 'The Callout', 58, 35),
+(598, 'With Me or Against Me', 58, 35),
+(599, 'Here Comes The Rain Again', 58, 35),
+(600, 'Hooray For The Losers', 58, 35),
+(601, 'Why Do We Pretend?', 58, 35),
+(602, 'Bittersweet', 58, 35),
+(603, 'Treadmill', 58, 35),
+(604, 'Nobody Gets Out Alive!', 59, 36),
+(605, 'Dieselboy - NVD (Le Castle Vania + Computer Club', 59, 36),
+(606, 'Le Castle Vania - Zero Machine', 59, 36),
+(607, 'Turn It Down" - Kaskade (Le Castle Vania Remix)', 59, 36);
+
+
+CREATE TABLE IF NOT EXISTS `sponsor` (
   `SponsorID` int(100) NOT NULL,
   `SponsorName` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO `sponsor` (`SponsorID`, `SponsorName`) VALUES
+(1, 'BeatPort'),
+(2, 'DoSomerthing.org'),
+(3, 'Vans'),
+(4, 'Monster Energy Drink'),
+(5, 'Kia Soul'),
+(6, 'Journeys'),
+(7, 'Warheads'),
+(8, 'Fuse TV'),
+(9, 'Hard Rock'),
+(10, 'Full Sail University');
+
+
+CREATE TABLE IF NOT EXISTS `sponsor_stage` (
+  `SponsorID` int(100) NOT NULL,
+  `StageID` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- --------------------------------------------------------
 
---
--- Table structure for table `Stage`
---
+INSERT INTO `sponsor_stage` (`SponsorID`, `StageID`) VALUES
+(1, 5),
+(2, 4),
+(3, 6),
+(4, 7),
+(5, 1),
+(6, 9),
+(7, 10),
+(8, 3),
+(9, 8),
+(10, 2);
 
-CREATE TABLE IF NOT EXISTS `Stage` (
+
+CREATE TABLE IF NOT EXISTS `stage` (
   `StageID` int(100) NOT NULL,
-  `StageName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `SponsorID` int(100) NOT NULL
+  `StageName` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO `stage` (`StageID`, `StageName`) VALUES
+(1, 'Kia Soul Stage'),
+(2, 'Monster Energy Stage'),
+(3, 'The Journey Stage'),
+(4, 'WARHEADS Stage'),
+(5, 'BeatPort Stage'),
+(6, 'Hard Rock Kevin Says...'),
+(7, 'Acoustic Basement'),
+(8, 'Ernie Ball Stage'),
+(9, 'Fuze TV Stage'),
+(10, 'Electric Soul Stage');
+
+
+CREATE TABLE IF NOT EXISTS `test` (
+  `mdflk` int(11) NOT NULL,
+  `sdklfgj` int(11) NOT NULL,
+  `dfkj` int(11) NOT NULL,
+  `sflkdj` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- --------------------------------------------------------
 
---
--- Table structure for table `WarpedTour`
---
-
-CREATE TABLE IF NOT EXISTS `WarpedTour` (
+CREATE TABLE IF NOT EXISTS `warpedtour` (
   `WarpedID` int(100) NOT NULL,
   `Date` date NOT NULL,
-  `AdmissioinPrice` int(100) DEFAULT NULL
+  `AdmissioinPrice` int(100) DEFAULT NULL,
+  `City` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `State` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO `warpedtour` (`WarpedID`, `Date`, `AdmissioinPrice`, `City`, `State`) VALUES
+(1, '2015-06-17', 40, 'Anchorage', 'AK'),
+(2, '2015-06-19', 40, 'Pomana', 'CA'),
+(3, '2015-06-26', 30, 'Houston', 'TX'),
+(4, '2015-07-05', 50, 'Orlando', 'FL'),
+(5, '2015-07-14', 40, 'Mansfield', 'MA');
+
+
+CREATE TABLE IF NOT EXISTS `warpedtour_band` (
+  `BandID` int(100) NOT NULL,
+  `WarpedID` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Indexes for dumped tables
---
 
---
--- Indexes for table `Sponsor`
---
-ALTER TABLE `Sponsor`
+INSERT INTO `warpedtour_band` (`BandID`, `WarpedID`) VALUES
+(1, 1),
+(2, 1),
+(3, 1),
+(4, 1),
+(5, 1),
+(6, 1),
+(7, 1),
+(8, 1),
+(9, 1),
+(10, 1),
+(11, 1),
+(12, 1),
+(13, 1),
+(14, 1),
+(15, 1),
+(16, 1),
+(17, 1),
+(18, 1),
+(19, 1),
+(20, 1),
+(21, 1),
+(22, 1),
+(23, 1),
+(24, 1),
+(24, 1),
+(26, 1),
+(27, 1),
+(28, 1),
+(29, 1),
+(30, 1),
+(31, 1),
+(32, 1),
+(33, 1),
+(34, 1),
+(35, 1),
+(36, 1),
+(1, 2),
+(2, 2),
+(3, 2),
+(5, 2),
+(6, 2),
+(7, 2),
+(8, 2),
+(9, 2),
+(10, 2),
+(12, 2),
+(13, 2),
+(14, 2),
+(16, 2),
+(18, 2),
+(19, 2),
+(20, 2),
+(21, 2),
+(22, 2),
+(23, 2),
+(24, 2),
+(25, 2),
+(26, 2),
+(27, 2),
+(28, 2),
+(29, 2),
+(30, 2),
+(31, 2),
+(32, 2),
+(33, 2),
+(34, 2),
+(35, 2),
+(36, 2),
+(1, 3),
+(2, 3),
+(3, 3),
+(5, 3),
+(6, 3),
+(7, 3),
+(8, 3),
+(9, 3),
+(10, 3),
+(11, 3),
+(12, 3),
+(13, 3),
+(14, 3),
+(15, 3),
+(16, 3),
+(17, 3),
+(18, 3),
+(19, 3),
+(20, 3),
+(21, 3),
+(22, 3),
+(23, 3),
+(24, 3),
+(25, 3),
+(26, 3),
+(27, 3),
+(28, 3),
+(29, 3),
+(30, 3),
+(31, 3),
+(32, 3),
+(33, 3),
+(34, 3),
+(35, 3),
+(36, 3),
+(1, 4),
+(2, 4),
+(3, 4),
+(4, 4),
+(5, 4),
+(6, 4),
+(7, 4),
+(8, 4),
+(9, 4),
+(10, 4),
+(11, 4),
+(12, 4),
+(13, 4),
+(14, 4),
+(15, 4),
+(16, 4),
+(17, 4),
+(18, 4),
+(19, 4),
+(20, 4),
+(21, 4),
+(22, 4),
+(23, 4),
+(24, 4),
+(25, 4),
+(26, 4),
+(27, 4),
+(28, 4),
+(29, 4),
+(30, 4),
+(31, 4),
+(32, 4),
+(33, 4),
+(34, 4),
+(35, 4),
+(36, 4),
+(1, 5),
+(2, 5),
+(3, 5),
+(4, 5),
+(5, 5),
+(6, 5),
+(7, 5),
+(8, 5),
+(9, 5),
+(10, 5),
+(11, 5),
+(12, 5),
+(13, 5),
+(14, 5),
+(15, 5),
+(16, 5),
+(17, 5),
+(18, 5),
+(19, 5),
+(20, 5),
+(21, 5),
+(22, 5),
+(23, 5),
+(24, 5),
+(25, 5),
+(26, 5),
+(27, 5),
+(28, 5),
+(29, 5),
+(30, 5),
+(31, 5),
+(32, 5),
+(33, 5),
+(34, 5),
+(35, 5),
+(36, 5);
+
+
+CREATE TABLE IF NOT EXISTS `warpedtour_organizer` (
+  `WarpedID` int(100) NOT NULL,
+  `OrgID` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+INSERT INTO `warpedtour_organizer` (`WarpedID`, `OrgID`) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4),
+(2, 1),
+(2, 2),
+(2, 3),
+(2, 5),
+(3, 2),
+(3, 3),
+(3, 1),
+(3, 4),
+(4, 3),
+(4, 5),
+(4, 4),
+(4, 1),
+(5, 1),
+(5, 2),
+(5, 3),
+(5, 4),
+(5, 5);
+
+
+CREATE TABLE IF NOT EXISTS `warpedtour_sponsor` (
+  `WarpedID` int(100) NOT NULL,
+  `SponsorID` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+INSERT INTO `warpedtour_sponsor` (`WarpedID`, `SponsorID`) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4),
+(1, 5),
+(1, 6),
+(1, 7),
+(1, 8),
+(1, 9),
+(1, 10),
+(2, 1),
+(2, 2),
+(2, 3),
+(2, 4),
+(2, 5),
+(2, 6),
+(2, 7),
+(2, 8),
+(2, 9),
+(2, 10),
+(3, 2),
+(3, 3),
+(3, 4),
+(3, 5),
+(3, 6),
+(3, 7),
+(3, 8),
+(3, 9),
+(4, 1),
+(4, 2),
+(4, 3),
+(4, 4),
+(4, 5),
+(4, 6),
+(4, 7),
+(4, 8),
+(4, 9),
+(4, 10),
+(5, 1),
+(5, 2),
+(5, 3),
+(5, 4),
+(5, 5),
+(5, 6),
+(5, 7),
+(5, 8),
+(5, 9),
+(5, 10);
+
+
+CREATE TABLE IF NOT EXISTS `warpedtour_stage` (
+  `WarpedID` int(100) NOT NULL,
+  `StageID` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO `warpedtour_stage` (`WarpedID`, `StageID`) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4),
+(1, 5),
+(1, 6),
+(1, 7),
+(1, 8),
+(1, 9),
+(1, 10),
+(2, 1),
+(2, 2),
+(2, 3),
+(2, 4),
+(2, 5),
+(2, 6),
+(2, 7),
+(2, 9),
+(2, 10),
+(3, 2),
+(3, 3),
+(3, 4),
+(3, 5),
+(3, 6),
+(3, 7),
+(3, 8),
+(3, 9),
+(4, 1),
+(4, 2),
+(4, 3),
+(4, 4),
+(4, 5),
+(4, 6),
+(4, 7),
+(4, 8),
+(4, 9),
+(4, 10),
+(5, 1),
+(5, 2),
+(5, 3),
+(5, 4),
+(5, 5),
+(5, 6),
+(5, 7),
+(5, 8),
+(5, 9),
+(5, 10);
+
+
+ALTER TABLE `album`
+  ADD PRIMARY KEY (`AlbumID`), ADD KEY `BandID` (`BandID`);
+
+ALTER TABLE `artist`
+  ADD PRIMARY KEY (`ArtistID`), ADD KEY `BandID` (`BandID`);
+
+ALTER TABLE `band`
+  ADD PRIMARY KEY (`BandID`), ADD KEY `GenreID` (`GenreID`), ADD KEY `StageID` (`StageID`);
+
+ALTER TABLE `genre`
+  ADD PRIMARY KEY (`GenreID`);
+
+ALTER TABLE `organizer`
+  ADD PRIMARY KEY (`OrdID`);
+
+ALTER TABLE `rodie`
+  ADD PRIMARY KEY (`RID`), ADD KEY `BandID` (`BandID`);
+
+ALTER TABLE `role`
+  ADD PRIMARY KEY (`RoleID`);
+
+ALTER TABLE `song`
+  ADD PRIMARY KEY (`SongID`);
+
+ALTER TABLE `sponsor`
   ADD PRIMARY KEY (`SponsorID`);
 
---
--- Indexes for table `Stage`
---
-ALTER TABLE `Stage`
+ALTER TABLE `sponsor_stage`
+  ADD KEY `SponsorID` (`SponsorID`), ADD KEY `StageID` (`StageID`);
+
+ALTER TABLE `stage`
   ADD PRIMARY KEY (`StageID`);
 
---
--- Indexes for table `WarpedTour`
---
-ALTER TABLE `WarpedTour`
-  ADD PRIMARY KEY (`WarpedID`);
+ALTER TABLE `warpedtour`
+  ADD PRIMARY KEY (`WarpedID`), ADD KEY `WarpedID` (`WarpedID`);
 
---
--- AUTO_INCREMENT for dumped tables
---
+ALTER TABLE `warpedtour_band`
+  ADD KEY `BandID` (`BandID`), ADD KEY `WarpedID` (`WarpedID`), ADD KEY `WarpedID_2` (`WarpedID`), ADD KEY `BandID_2` (`BandID`);
 
---
--- AUTO_INCREMENT for table `Sponsor`
---
-ALTER TABLE `Sponsor`
-  MODIFY `SponsorID` int(100) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `Stage`
---
-ALTER TABLE `Stage`
-  MODIFY `StageID` int(100) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `WarpedTour`
---
-ALTER TABLE `WarpedTour`
-  MODIFY `WarpedID` int(100) NOT NULL AUTO_INCREMENT;
---
--- Constraints for dumped tables
---
+ALTER TABLE `warpedtour_organizer`
+  ADD KEY `WarpedID` (`WarpedID`), ADD KEY `OrgID` (`OrgID`);
 
---
--- Constraints for table `Stage`
---
-ALTER TABLE `Stage`
-ADD CONSTRAINT `Foreign Key` FOREIGN KEY (`StageID`) REFERENCES `Sponsor` (`SponsorID`) ON DELETE NO ACTION;
+ALTER TABLE `warpedtour_sponsor`
+  ADD KEY `WarpedID` (`WarpedID`), ADD KEY `SponsorID` (`SponsorID`);
+
+ALTER TABLE `warpedtour_stage`
+  ADD KEY `WarpedID` (`WarpedID`), ADD KEY `StageID` (`StageID`);
+
+ALTER TABLE `album`
+  MODIFY `AlbumID` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=60;
+
+ALTER TABLE `artist`
+  MODIFY `ArtistID` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=172;
+
+ALTER TABLE `band`
+  MODIFY `BandID` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=37;
+
+ALTER TABLE `genre`
+  MODIFY `GenreID` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+
+ALTER TABLE `organizer`
+  MODIFY `OrdID` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+
+ALTER TABLE `rodie`
+  MODIFY `RID` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+
+ALTER TABLE `role`
+  MODIFY `RoleID` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+
+ALTER TABLE `song`
+  MODIFY `SongID` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=608;
+
+ALTER TABLE `sponsor`
+  MODIFY `SponsorID` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+
+ALTER TABLE `stage`
+  MODIFY `StageID` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+
+ALTER TABLE `warpedtour`
+  MODIFY `WarpedID` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+
+ALTER TABLE `album`
+ADD CONSTRAINT `Band should match` FOREIGN KEY (`BandID`) REFERENCES `band` (`BandID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE `artist`
+ADD CONSTRAINT `Should belong to band` FOREIGN KEY (`BandID`) REFERENCES `band` (`BandID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE `band`
+ADD CONSTRAINT `band_ibfk_1` FOREIGN KEY (`GenreID`) REFERENCES `genre` (`GenreID`),
+ADD CONSTRAINT `band_ibfk_2` FOREIGN KEY (`StageID`) REFERENCES `stage` (`StageID`);
+
+ALTER TABLE `rodie`
+ADD CONSTRAINT `Rodie should belong to band` FOREIGN KEY (`BandID`) REFERENCES `band` (`BandID`);
+
+ALTER TABLE `sponsor_stage`
+ADD CONSTRAINT `sponsor_stage_ibfk_1` FOREIGN KEY (`SponsorID`) REFERENCES `sponsor` (`SponsorID`),
+ADD CONSTRAINT `sponsor_stage_ibfk_2` FOREIGN KEY (`StageID`) REFERENCES `stage` (`StageID`);
+
+ALTER TABLE `warpedtour_band`
+ADD CONSTRAINT `Match Band` FOREIGN KEY (`BandID`) REFERENCES `band` (`BandID`),
+ADD CONSTRAINT `matching warptour` FOREIGN KEY (`WarpedID`) REFERENCES `warpedtour` (`WarpedID`);
+
+ALTER TABLE `warpedtour_organizer`
+ADD CONSTRAINT `warpedtour_organizer_ibfk_1` FOREIGN KEY (`WarpedID`) REFERENCES `warpedtour` (`WarpedID`),
+ADD CONSTRAINT `warpedtour_organizer_ibfk_2` FOREIGN KEY (`OrgID`) REFERENCES `organizer` (`OrdID`);
+
+ALTER TABLE `warpedtour_sponsor`
+ADD CONSTRAINT `warpedtour_sponsor_ibfk_1` FOREIGN KEY (`WarpedID`) REFERENCES `warpedtour` (`WarpedID`),
+ADD CONSTRAINT `warpedtour_sponsor_ibfk_2` FOREIGN KEY (`SponsorID`) REFERENCES `sponsor` (`SponsorID`);
+
+ALTER TABLE `warpedtour_stage`
+ADD CONSTRAINT `Matching to stage` FOREIGN KEY (`StageID`) REFERENCES `stage` (`StageID`),
+ADD CONSTRAINT `matching to warptour` FOREIGN KEY (`WarpedID`) REFERENCES `warpedtour` (`WarpedID`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
