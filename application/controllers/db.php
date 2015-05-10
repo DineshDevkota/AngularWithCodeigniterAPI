@@ -52,10 +52,10 @@ class db extends CI_Controller {
 	     $viewvalue=array('data'=>$data);
 	     $this->load->view('navviews/album',$viewvalue);
 	 }
-	 public function song(){
+	 public function proview(){
 	     $data=json_decode($this->ConectDB->GetSongsWithDetails());
 	     $viewvalue=array('data'=>$data);
-	     $this->load->view('navviews/song',$viewvalue);
+	     $this->load->view('navviews/proview',$viewvalue);
 	     
 	 }
 	 public function GetStageByWarpedTourID($id=false){
