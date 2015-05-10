@@ -1,4 +1,4 @@
-<h1>Associated Warped tours.</h1>
+<h1>Associated Artists</h1>
                 <!-- content wrapper -->
                 <div class="content-wrap">
 
@@ -12,31 +12,35 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Date</th>
+                                                    <th>First Name</th>
+                                                    <th>Last Name</th>
+                                                    <th>Address</th>
                                                     <th>City</th>
-                                                    <th>State</th>
-                                                    <th>Admissioin Price</th>
-                                                    <th>View Options</th>
+                                                    <th> State</th> 
+                                                    <th>Zip</th>
+                                                    <th>Job Title</th>
+                                                    <th> Pay Rate</th>   
+                                                         
                                                 </tr>
                                             </thead>
                                             <tbody>
                                             <?php foreach($data as $key=>$value){?>
                                                 <tr>
                                                     <td><?php echo $key+1;?></td>
-                                                    <td><?php echo $value->Date;?></td>
+                                                    <td><?php echo $value->FName;?></td>
+                                                    <td><?php echo $value->LName;?></td>
+                                                    <td><?php echo $value->Address;?></td>
                                                     <td><?php echo $value->City;?></td>
-                                                    <td><?php echo $value->State;?></td>
-                                                    <td><?php echo $value->AdmissioinPrice;?></td>                  
-                                                    <td>
-                                                        <a class="btn btn-default" href='/db/GetStageByWarpedTourID/<?php echo $value->WarpedID;?>'>Stages</a>
-                                                        <a class="btn btn-info" href='/db/GetOrganizerByWarpedTourID/<?php echo $value->WarpedID;?>'>Organizers</a>
-                                                        <a class="btn btn-primary" href='/db/GetSponserByWarpedTourID/<?php echo $value->WarpedID;?>'>Sponsor</a>
-                                                        <a class="btn-link" href='/db/GetBandByWarpedTourID/<?php echo $value->WarpedID;?>'>Band</a>                                                     
-                                                    </td>
+                                                    <td><?php echo $value->State;?></td> 
+                                                     <td><?php echo $value->Zip;?></td> 
+                                                      <td><?php echo $value->JobTitle;?></td>  
+                                                      <td><?php echo $value->PayRate;?></td>  
+                                                                                                                                                      
                                                 </tr>                                                
                                            <?php  }?>                                             
                                             </tbody>
                                         </table>
+                                        <a class="btn btn-info" onclick="window.history.back()">Back</a>
                                     </div>
                                     </div>
                                     

@@ -109,14 +109,14 @@ body {
 					alt="logo" /> <a class="brand" href="<?php echo site_url(); ?>">&nbsp;&nbsp;Warped Tour Directory</a>
 				<div style="height: 0px;" class="nav-collapse collapse">
 					<ul class="nav">
-						<li class="active"><a href="<?php echo site_url(); ?>">Home</a></li>
+						
 						<li class="active"><a href="/db/warpedtour">Warpedtour</a></li>
 						<li class="active"><a href="/db/artist">Artist</a></li>
 						<li class="active"><a href="/db/band">Band</a></li>
 						<li class="active"><a href="/db/genre">Genre</a></li>
 						<li class="active"><a href="/db/sponsor">Sponsors</a></li>
-						<li class="active"><a href="/db/album">album</a></li>
-						<li class="active"><a href="/db/song">song</a></li>
+						<li class="active"><a href="/db/album">Albums</a></li>
+						<li class="active"><a href="/db/song">Songs</a></li>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->

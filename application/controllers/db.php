@@ -66,7 +66,34 @@ class db extends CI_Controller {
 	     }else{
 	         $data=json_decode($this->ConectDB->GetStageByWarpedTourID($id));
 	         $viewvalue=array('data'=>$data);
-	         $this->load->view('dynamicviews/stages',$viewvalue);
+	         $this->load->view('dynamicviews/stagesbywarpedtour',$viewvalue);
+	     }
+	 }
+	 public function GetOrganizerByWarpedTourID($id=false){
+	     if(!$id){
+	         show_404();
+	     }else{
+	         $data=json_decode($this->ConectDB->GetOrganizerByWarpedTourID($id));
+	         $viewvalue=array('data'=>$data);
+	         $this->load->view('dynamicviews/organizerbywarpedtour',$viewvalue);
+	     }
+	 }
+	 public function GetSponserByWarpedTourID($id=false){
+	     if(!$id){
+	         show_404();
+	     }else{
+	         $data=json_decode($this->ConectDB->GetSponserByWarpedTourID($id));
+	         $viewvalue=array('data'=>$data);
+	         $this->load->view('navviews/sponsor',$viewvalue);
+	     }
+	 }
+	 public function GetBandByWarpedTourID($id=false){
+	     if(!$id){
+	         show_404();
+	     }else{
+	         $data=json_decode($this->ConectDB->GetBandByWarpedTourID($id));
+	         $viewvalue=array('data'=>$data);
+	         $this->load->view('dynamicviews/bandbywarpedtourorgnizer',$viewvalue);
 	     }
 	 }
 
