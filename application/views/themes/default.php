@@ -8,10 +8,12 @@
 body {
 	font: 14px helvetica neue, helvetica, arial, sans-serif;
 }
-.myapp{
-	width:50%;
-	margin:auto;
+
+.myapp {
+	width: 50%;
+	margin: auto;
 }
+
 #cy {
 	height: 100%;
 	width: 100%;
@@ -30,40 +32,44 @@ body {
 }
 </style>
 	<?php
-	/** -- Copy from here -- */
-	if(!empty($meta))
-	foreach($meta as $name=>$content){
-		echo "\n\t\t";
-		?><meta name="<?php echo $name; ?>" content="<?php echo $content; ?>" /><?php
-			 }
-	echo "\n";
+/**
+ * -- Copy from here --
+ */
+if (! empty($meta))
+    foreach ($meta as $name => $content) {
+        echo "\n\t\t";
+        ?><meta name="<?php echo $name; ?>" content="<?php echo $content; ?>" /><?php
+    }
+echo "\n";
 
-	if(!empty($canonical))
-	{
-		echo "\n\t\t";
-		?><link rel="canonical" href="<?php echo $canonical?>" /><?php
+if (! empty($canonical)) {
+    echo "\n\t\t";
+    ?><link rel="canonical" href="<?php echo $canonical?>" /><?php
+}
+echo "\n\t";
 
-	}
-	echo "\n\t";
+foreach ($css as $file) {
+    echo "\n\t\t";
+    ?><link rel="stylesheet" href="<?php echo $file; ?>" type="text/css" /><?php
+}
+echo "\n\t";
 
-	foreach($css as $file){
-	 	echo "\n\t\t";
-		?><link rel="stylesheet" href="<?php echo $file; ?>" type="text/css" /><?php
-	} echo "\n\t";
+foreach ($js as $file) {
+    echo "\n\t\t";
+    ?><script src="<?php echo $file; ?>"></script><?php
+}
+echo "\n\t";
 
-	foreach($js as $file){
-			echo "\n\t\t";
-			?><script src="<?php echo $file; ?>"></script><?php
-	} echo "\n\t";
-
-	/** -- to here -- */
+/**
+ * -- to here --
+ */
 ?>
 
     <!-- Le styles -->
-   
-    <!-- /page level plugin styles -->
 
-    <!-- core styles -->
+<!-- /page level plugin styles -->
+
+<!-- core styles -->
 
 <link
 	href="<?php echo base_url(); ?>assets/themes/default/hero_files/bootstrap.css"
@@ -79,8 +85,10 @@ body {
 	rel="stylesheet">
 <link href="<?php echo base_url(); ?>assets/themes/default/css/db.css"
 	rel="stylesheet">
-	 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/chosen.min.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/jquery.datatables.css">
+<link rel="stylesheet"
+	href="<?php echo base_url(); ?>assets/plugins/chosen.min.css">
+<link rel="stylesheet"
+	href="<?php echo base_url(); ?>assets/plugins/jquery.datatables.css">
 
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
@@ -106,10 +114,11 @@ body {
 				</a> <img
 					src="<?php echo base_url(); ?>assets/themes/default/img/logo1.png"
 					style="width: 32px; float: left; margin-top: 5px; z-index: 5"
-					alt="logo" /> <a class="brand" href="<?php echo site_url(); ?>">&nbsp;&nbsp;Warped Tour Directory</a>
+					alt="logo" /> <a class="brand" href="<?php echo site_url(); ?>">&nbsp;&nbsp;Warped
+					Tour Directory</a>
 				<div style="height: 0px;" class="nav-collapse collapse">
 					<ul class="nav">
-						
+
 						<li class="active"><a href="/db/warpedtour">Warpedtour</a></li>
 						<li class="active"><a href="/db/artist">Artist</a></li>
 						<li class="active"><a href="/db/band">Band</a></li>
@@ -145,25 +154,32 @@ body {
 		</footer>
 
 	</div>
-	<script src="<?php echo base_url(); ?>assets/plugins/jquery-1.11.1.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.js"></script>
-    <script src="<?php echo base_url(); ?>assets/plugins/jquery.slimscroll.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/plugins/jquery.easing.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/plugins/jquery.appear.js"></script>
-    <script src="<?php echo base_url(); ?>assets/plugins/jquery.placeholder.js"></script>
-    <script src="<?php echo base_url(); ?>assets/plugins/fastclick.js"></script>
-    <!-- /core scripts -->
+	<script
+		src="<?php echo base_url(); ?>assets/plugins/jquery-1.11.1.min.js"></script>
+	<script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.js"></script>
+	<script
+		src="<?php echo base_url(); ?>assets/plugins/jquery.slimscroll.min.js"></script>
+	<script
+		src="<?php echo base_url(); ?>assets/plugins/jquery.easing.min.js"></script>
+	<script src="<?php echo base_url(); ?>assets/plugins/jquery.appear.js"></script>
+	<script
+		src="<?php echo base_url(); ?>assets/plugins/jquery.placeholder.js"></script>
+	<script src="<?php echo base_url(); ?>assets/plugins/fastclick.js"></script>
+	<!-- /core scripts -->
 
-    <!-- page level scripts -->
-    <script src="<?php echo base_url(); ?>assets/plugins/chosen.jquery.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/plugins/jquery.dataTables.js"></script>
-    <!-- /page level scripts -->
+	<!-- page level scripts -->
+	<script
+		src="<?php echo base_url(); ?>assets/plugins/chosen.jquery.min.js"></script>
+	<script
+		src="<?php echo base_url(); ?>assets/plugins/jquery.dataTables.js"></script>
+	<!-- /page level scripts -->
 
-   
 
-    <!-- page script -->
-    <script src="<?php echo base_url(); ?>assets/js/bootstrap-datatables.js"></script>
-    <script>
+
+	<!-- page script -->
+	<script
+		src="<?php echo base_url(); ?>assets/js/bootstrap-datatables.js"></script>
+	<script>
     $('.custom-table').DataTable();
     </script>
 </body>
