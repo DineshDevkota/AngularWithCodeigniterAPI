@@ -106,5 +106,26 @@ class db extends CI_Controller {
 	     }
 	 }
 	 
+	 public function GetSongsByAlbumID($id=false){
+	     if(!$id){
+	         show_404();
+	     }else{
+	         $data=json_decode($this->ConectDB->GetSongsByAlbumID($id));
+	         $viewvalue=array('data'=>$data);
+	         $this->load->view('dynamicviews/SongsByAlbumID',$viewvalue);
+	     }
+	 }
+	 public function GetBandsByStageID($id=false){
+	     if(!$id){
+	         show_404();
+	     }else{
+	         $data=json_decode($this->ConectDB->GetBandsByStageID($id));
+	         $viewvalue=array('data'=>$data);
+	         $this->load->view('dynamicviews/BandsByStageID',$viewvalue);
+	     }
+	 }
+	 
+	 
+	 
 
 }

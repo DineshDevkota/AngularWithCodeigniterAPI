@@ -15,7 +15,7 @@
                                                     <th>Date</th>
                                                     <th>City</th>
                                                     <th>State</th>
-                                                    <th>Admissioin Price</th>
+                                                    <th>Admission Price</th>
                                                     <th>View Options</th>
                                                 </tr>
                                             </thead>

@@ -247,4 +247,44 @@ class dbApi extends CI_Controller
         $this->PrettyPrintToJSON($query->result());
         return json_encode($query->result());
     }
+    public function GetSongsByAlbumID($id=False){
+        if(!$id){
+            $this->PrettyPrintToJSON(Array());
+            return json_encode(Array());
+        }
+        $this->db->select('*')
+        ->from('song')
+        ->where('AlbumID', $id);
+    
+        $query = $this->db->get();
+        $this->PrettyPrintToJSON($query->result());
+        return json_encode($query->result());
+    }
+    public function GetSongsByBandID($id=False){
+        if(!$id){
+            $this->PrettyPrintToJSON(Array());
+            return json_encode(Array());
+        }
+        $this->db->select('*')
+        ->from('song')
+        ->where('BandID', $id);
+    
+        $query = $this->db->get();
+        $this->PrettyPrintToJSON($query->result());
+        return json_encode($query->result());
+    }
+    public function GetBandsByStageID($id=False){
+        if(!$id){
+            $this->PrettyPrintToJSON(Array());
+            return json_encode(Array());
+        }
+        $this->db->select('*')
+        ->from('band')
+        ->where('StageID', $id);
+    
+        $query = $this->db->get();
+        $this->PrettyPrintToJSON($query->result());
+        return json_encode($query->result());
+    }
+    
 }

@@ -1,4 +1,4 @@
-<h1>Associated Artists</h1>
+<h1>Associated Songs</h1>
                 <!-- content wrapper -->
                 <div class="content-wrap">
 
@@ -12,24 +12,20 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Name of Album</th> 
-                                                    <th>Release Date</th>
-                                                    <th>View Options</th>              
+                                                    <th>Name of Song</th>         
                                                 </tr>
                                             </thead>
                                             <tbody>
                                             <?php foreach($data as $key=>$value){?>
                                                 <tr>
                                                     <td><?php echo $key+1;?></td>
-                                                    <td><?php echo $value->AlbumName;?></td>    
-                                                    <td><?php echo $value->ReleaseDate;?></td>  
-                                                    <td><a class="btn btn-info" href='/db/GetSongsByAlbumID/<?php echo $value->AlbumID;?>'>Songs</a></td>                                                                                                  
+                                                    <td><?php echo $value->Title;?></td>                                                                                                                                                          
                                                 </tr>                                                
                                            <?php  }?>                                             
-                                            </tbody>
+                                            </tbody>                                           
                                         </table>
+                                        <a class="btn btn-info" onclick="window.history.back()">Back</a>
                                     </div>
-                                    </div>
-                                    
+                                    </div>                                    
                                 </section>
                                 </div></div>

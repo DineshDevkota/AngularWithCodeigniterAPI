@@ -1,4 +1,4 @@
-<h1>Associated Artists</h1>
+<h1>Associated Organizers</h1>
                 <!-- content wrapper -->
                 <div class="content-wrap">
 

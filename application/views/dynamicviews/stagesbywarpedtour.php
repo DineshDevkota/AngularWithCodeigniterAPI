@@ -12,14 +12,16 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Name of Stage</th>         
+                                                    <th>Name of Stage</th> 
+                                                    <th>View Options</th>        
                                                 </tr>
                                             </thead>
                                             <tbody>
                                             <?php foreach($data as $key=>$value){?>
                                                 <tr>
                                                     <td><?php echo $key+1;?></td>
-                                                    <td><?php echo $value->StageName;?></td>    
+                                                    <td><?php echo $value->StageName;?></td>  
+                                                   <td> <a class="btn btn-info" href='/db/GetBandsByStageID/<?php echo $value->StageID;?>'>Bands</a></td>  
                                                                                                                                                       
                                                 </tr>                                                
                                            <?php  }?>                                             
