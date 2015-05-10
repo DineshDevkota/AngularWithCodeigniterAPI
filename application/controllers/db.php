@@ -96,5 +96,15 @@ class db extends CI_Controller {
 	         $this->load->view('dynamicviews/bandbywarpedtourorgnizer',$viewvalue);
 	     }
 	 }
+	 public function GetAlbumsByBandID($id=false){
+	     if(!$id){
+	         show_404();
+	     }else{
+	         $data=json_decode($this->ConectDB->GetAlbumsByBandID($id));
+	         $viewvalue=array('data'=>$data);
+	         $this->load->view('dynamicviews/AlbumsByBandID',$viewvalue);
+	     }
+	 }
+	 
 
 }

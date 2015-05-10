@@ -226,5 +226,18 @@ class ConectDB extends CI_Model {
        
         return json_encode($query->result());
     }
+    public function GetAlbumsByBandID($id=False){
+        if(!$id){
+            $this->PrettyPrintToJSON(Array());
+            return json_encode(Array());
+        }
+        $this->db->select('*')
+        ->from('album')
+        ->where('BandID', $id);
+    
+        $query = $this->db->get();
+        
+        return json_encode($query->result());
+    }
     
 }

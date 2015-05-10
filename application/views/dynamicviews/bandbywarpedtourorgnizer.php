@@ -12,6 +12,7 @@
     <tr>
         <th>#</th>
             <th>Name of Band</th>
+            <th>View Options</th>
             
                 </tr>
                 </thead>
@@ -19,7 +20,8 @@
                 <?php foreach($data as $key=>$value){?>
                                                 <tr>
                                                     <td><?php echo $key+1;?></td>
-                                                    <td><?php echo $value->BandName;?></td>                                                    
+                                                    <td><?php echo $value->BandName;?></td>    
+                                                    <td> <a class="btn btn-info" href='/db/GetAlbumsByBandID/<?php echo $value->BandID;?>'>Albums</a></td>                                               
                                                      
                                                 </tr>                                                
                                            <?php  }?>                                             

@@ -234,4 +234,17 @@ class dbApi extends CI_Controller
         $this->PrettyPrintToJSON($query->result());
         return json_encode($query->result());
     }
+    public function GetAlbumsByBandID($id=False){
+        if(!$id){
+            $this->PrettyPrintToJSON(Array());
+            return json_encode(Array());
+        } 
+        $this->db->select('*')
+        ->from('album')
+        ->where('BandID', $id);
+        
+        $query = $this->db->get();
+        $this->PrettyPrintToJSON($query->result());
+        return json_encode($query->result());
+    }
 }
