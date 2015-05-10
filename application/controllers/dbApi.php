@@ -280,11 +280,21 @@ class dbApi extends CI_Controller
         }
         $this->db->select('*')
         ->from('band')
-        ->where('StageID', $id);
-    
+        ->where('StageID', $id);  
         $query = $this->db->get();
         $this->PrettyPrintToJSON($query->result());
         return json_encode($query->result());
+    }
+    public function GetSongsWithDetails(){        
+        $this->db->select('*')
+                    ->from('song')
+                    ->join('band', 'band.BandID=song.BandID')
+                    ->join('genre', 'genre.GenreID=band.GenreID')
+                    ->join('album', 'album.AlbumID=song.AlbumID');
+        $query = $this->db->get();
+        $this->PrettyPrintToJSON($query->result());
+        return json_encode($query->result());
+    
     }
     
 }

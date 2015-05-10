@@ -275,5 +275,15 @@ class ConectDB extends CI_Model {
         $query = $this->db->get();
         return json_encode($query->result());
     }
+    public function GetSongsWithDetails(){
+        $this->db->select('*')
+        ->from('song')
+        ->join('band', 'band.BandID=song.BandID')
+        ->join('genre', 'genre.GenreID=band.GenreID')
+        ->join('album', 'album.AlbumID=song.AlbumID');
+        $query = $this->db->get();
+        return json_encode($query->result());
+    
+    }
     
 }
