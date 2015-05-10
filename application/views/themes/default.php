@@ -95,12 +95,8 @@ body {
 	content="<?php echo base_url(); ?>assets/themes/default/images/facebook-thumb.png" />
 <link rel="image_src"
 	href="<?php echo base_url(); ?>assets/themes/default/images/facebook-thumb.png" />
-
-
 </head>
-
 <body>
-
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
@@ -119,7 +115,8 @@ body {
 						<li class="active"><a href="/db/band">Band</a></li>
 						<li class="active"><a href="/db/genre">Genre</a></li>
 						<li class="active"><a href="/db/sponsor">Sponsors</a></li>
-
+						<li class="active"><a href="/db/album">album</a></li>
+						<li class="active"><a href="/db/song">song</a></li>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->

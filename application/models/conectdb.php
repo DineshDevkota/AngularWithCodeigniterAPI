@@ -33,13 +33,18 @@ class ConectDB extends CI_Model {
          
         return json_encode($query->result());
     }
+    public function GetSponsors()
+    {
+        $query = $this->db->get('sponsor');       
+        return json_encode($query->result());
+    }
     public function GetStages()
     {
         $query = $this->db->get('stage');
        
         return json_encode($query->result());
     }
-    public function GetAlbumns()
+    public function GetAlbums()
     {
         $query = $this->db->get('album');
        

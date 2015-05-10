@@ -3,14 +3,14 @@
 class db extends CI_Controller {
     /**
        Controller for Frontend index page and work.
+       Author:Dinesh Devkota
+       Consumed the dbApi as connectdb model in the project
      */
 	function __construct()
 	{
 		parent::__construct();
-
 		$this->load->helper('url');
 		$this->load->model("ConectDB");
-
 		$this->_init();
 	}
 
@@ -22,22 +22,52 @@ class db extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('dineshdevkota/welcome');
+		$this->load->view('navviews/welcome');
 	}
 	public function warpedtour(){
 	    $data=json_decode($this->ConectDB->GetWarpedTours());
 	    $viewvalue=array('data'=>$data);  
-	   $this->load->view('dineshdevkota/warpedtour',$viewvalue);
+	   $this->load->view('navviews/warpedtour',$viewvalue);
 	}
 	public function artist(){
 	    $data=json_decode($this->ConectDB->GetArtists());
 	    $viewvalue=array('data'=>$data);
-	    $this->load->view('dineshdevkota/artist',$viewvalue);
+	    $this->load->view('navviews/artist',$viewvalue);
 	}
 	 public function band(){
 	     $data=json_decode($this->ConectDB->GetBands());
 	     $viewvalue=array('data'=>$data);
-	     $this->load->view('dineshdevkota/bands',$viewvalue);
+	     $this->load->view('navviews/bands',$viewvalue);
+	 }
+	 public function genre(){
+	     $data=json_decode($this->ConectDB->GetGenres());
+	     $viewvalue=array('data'=>$data);
+	     $this->load->view('navviews/genre',$viewvalue);
+	 }
+	 public function sponsor(){
+	     $data=json_decode($this->ConectDB->GetSponsors());
+	     $viewvalue=array('data'=>$data);
+	     $this->load->view('navviews/sponsor',$viewvalue);
+	 }
+	 public function album(){
+	     $data=json_decode($this->ConectDB->GetAlbums());
+	     $viewvalue=array('data'=>$data);
+	     $this->load->view('navviews/album',$viewvalue);
+	 }
+	 public function song(){
+	     $data=json_decode($this->ConectDB->GetSongs());
+	     $viewvalue=array('data'=>$data);
+	     $this->load->view('navviews/song',$viewvalue);
+	     
+	 }
+	 public function GetStageByWarpedTourID($id=false){
+	     if(!$id){
+	         show_404();
+	     }else{
+	         $data=json_decode($this->ConectDB->GetStageByWarpedTourID($id));
+	         $viewvalue=array('data'=>$data);
+	         $this->load->view('dynamicviews/stages',$viewvalue);
+	     }
 	 }
 
 }

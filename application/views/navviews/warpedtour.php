@@ -1,4 +1,4 @@
-<h1>Associated Artists</h1>
+<h1>Associated Warped tours.</h1>
                 <!-- content wrapper -->
                 <div class="content-wrap">
 
@@ -12,18 +12,22 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Name of Band</th>
-                                                   
-                                                    <th>Functionality</th>
-                                                    
+                                                    <th>Date</th>
+                                                    <th>City</th>
+                                                    <th>State</th>
+                                                    <th>Admissioin Price</th>
+                                                    <th> Options</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                             <?php foreach($data as $key=>$value){?>
                                                 <tr>
                                                     <td><?php echo $key+1;?></td>
-                                                    <td><?php echo $value->BandName;?></td>                                                    
-                                                     <td>StageID BandID GenreID</td>
+                                                    <td><?php echo $value->Date;?></td>
+                                                    <td><?php echo $value->City;?></td>
+                                                    <td><?php echo $value->State;?></td>
+                                                    <td><?php echo $value->AdmissioinPrice;?></td>
+                                                    <td><a class="btn btn-default" href='/db/GetStageByWarpedTourID/<?php echo $value->WarpedID;?>'>View Stages</a></td>
                                                 </tr>                                                
                                            <?php  }?>                                             
                                             </tbody>
