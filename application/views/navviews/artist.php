@@ -1,4 +1,4 @@
-<h1>Associated Artists</h1>
+<h1>Current artists and their band in our Warped Tours</h1>
 <!-- content wrapper -->
 <div class="content-wrap">
 
@@ -14,7 +14,7 @@
 								<th>#</th>
 								<th>Artist Name</th>
 								<th>Position</th>
-								<th>Functionality</th>
+								<th>Band Name</th>
 
 							</tr>
 						</thead>
@@ -24,12 +24,13 @@
 								<td><?php echo $key+1;?></td>
 								<td><?php echo $value->ArtistName;?></td>
 								<td><?php echo $value->Position;?></td>
-								<td><?php echo "to band"+$value->BandID;?></td>
+								<td><?php echo $value->BandName;?></td>
 
 							</tr>                                                
                             <?php  }?>                                             
                         </tbody>
 					</table>
+					<a class="btn btn-info" onclick="window.history.back()">Back</a>
 				</div>
 			</div>
 

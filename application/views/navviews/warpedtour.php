@@ -1,4 +1,4 @@
-<h1>Associated Warped tours.</h1>
+<h1>Active and scheduled Warped Tour</h1>
 <!-- content wrapper -->
 <div class="content-wrap">
 
@@ -33,7 +33,7 @@
 									href='/db/GetOrganizerByWarpedTourID/<?php echo $value->WarpedID;?>'>Organizers</a>
 									<a class="btn btn-primary"
 									href='/db/GetSponserByWarpedTourID/<?php echo $value->WarpedID;?>'>Sponsor</a>
-									<a class="btn-link"
+									<a class="btn btn-success"
 									href='/db/GetBandByWarpedTourID/<?php echo $value->WarpedID;?>'>Band</a>
 								</td>
 							</tr>                                                

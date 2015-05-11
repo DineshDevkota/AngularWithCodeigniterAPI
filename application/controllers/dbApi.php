@@ -300,6 +300,15 @@ class dbApi extends CI_Controller
         return json_encode($query->result());
     
     }
+    public function GetArtistsWithDetails(){
+        $this->db->select('*')
+        ->from('artist')
+        ->join('band', 'band.BandID=artist.BandID');
+        $query = $this->db->get();
+        $this->PrettyPrintToJSON($query->result());
+        return json_encode($query->result());
+    
+    }
     public function GetSongsWithDetails(){        
         $this->db->select('*')
                     ->from('song')
@@ -322,6 +331,21 @@ class dbApi extends CI_Controller
         $this->PrettyPrintToJSON($query->result());
         return json_encode($query->result());
     
+    }
+    public function GetBandAndGenreByWarpedTourID($id=False)
+    {
+        if(!$id){
+            $this->PrettyPrintToJSON(Array());
+            return json_encode(Array());
+        }
+        $this->db->select('*')
+        ->from('warpedtour_band')
+        ->where('WarpedID', $id)
+        ->join('band', 'band.BandID=warpedtour_band.BandID')
+        ->join('genre', 'band.GenreID=genre.GenreID');
+        $query = $this->db->get();
+        $this->PrettyPrintToJSON($query->result());
+        return json_encode($query->result());
     }
     
     

@@ -1,4 +1,4 @@
-<h1>Associated Artists</h1>
+<h1>Detailed View of Songs with their Band, Genre, Album and Release Date</h1>
 <!-- content wrapper -->
 <div class="content-wrap">
 

@@ -12,7 +12,9 @@
 							<tr>
 								<th>#</th>
 								<th>Name of Band</th>
+								<th>Genre</th>
 								<th>View Options</th>
+								
 							</tr>
 						</thead>
 						<tbody>
@@ -20,6 +22,7 @@
                               <tr>
 								<td><?php echo $key+1;?></td>
 								<td><?php echo $value->BandName;?></td>
+								<td><?php echo $value->GenreName;?></td>								
 								<td><a class="btn btn-info"
 									href='/db/GetAlbumsByBandID/<?php echo $value->BandID;?>'>Albums</a></td>
 							 </tr>                                                

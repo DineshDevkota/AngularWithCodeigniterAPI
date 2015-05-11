@@ -27,6 +27,7 @@
                            <?php  }?>                                             
                         </tbody>
 					</table>
+					<a class="btn btn-info" onclick="window.history.back()">Back</a>
 				</div>
 			</div>
 		</section>

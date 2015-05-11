@@ -28,7 +28,7 @@ class db extends CI_Controller {
 	   $this->load->view('navviews/warpedtour',$viewvalue);
 	}
 	public function artist(){
-	    $data=json_decode($this->ConectDB->GetArtists());
+	    $data=json_decode($this->ConectDB->GetArtistsWithDetails());
 	    $viewvalue=array('data'=>$data);
 	    $this->load->view('navviews/artist',$viewvalue);
 	}
@@ -89,7 +89,7 @@ class db extends CI_Controller {
 	     if(!$id){
 	         show_404();
 	     }else{
-	         $data=json_decode($this->ConectDB->GetBandByWarpedTourID($id));
+	         $data=json_decode($this->ConectDB->GetBandAndGenreByWarpedTourID($id));
 	         $viewvalue=array('data'=>$data);
 	         $this->load->view('dynamicviews/bandbywarpedtourorgnizer',$viewvalue);
 	     }
