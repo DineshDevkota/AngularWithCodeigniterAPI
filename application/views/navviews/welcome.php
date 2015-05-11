@@ -35,8 +35,6 @@
 	<a href="<?php echo base_url(); ?>dbApi/GetBandAndGenreByWarpedTourID/1">GetBandAndGenreByWarpedTourID/#</a>
 	<a href="<?php echo base_url(); ?>dbApi/GetArtistByBandID/1">GetArtistByBandID/#</a>
 	<a href="<?php echo base_url(); ?>dbApi/GetRodiesByBandID/1">GetRodiesByBandID/#</a>
-
-	
 	</div>
 </div>
 
