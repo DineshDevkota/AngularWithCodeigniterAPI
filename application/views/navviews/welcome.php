@@ -1,8 +1,8 @@
 
-<h1>Welcome to CMPS 439 The Database Class Project</h1>
+<h1>Welcome to Datatable Database project.</h1>
 
 <div id="body">
-	<p>This views are based on following JSON API endpoints.</p>
+	<p>This views are based on following JSON API endpoints. Make similar request for different dataset.</p>
 	<div class="link-lists">
 	<a href="<?php echo base_url(); ?>dbApi/GetWarpedTours">GetWarpedTours</a>
 	<a href="<?php echo base_url(); ?>dbApi/GetStages">GetStages</a>
