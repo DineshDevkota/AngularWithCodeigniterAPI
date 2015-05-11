@@ -322,5 +322,29 @@ class ConectDB extends CI_Model {
         return json_encode($query->result());
     
     }
+    public function GetArtistByBandID($id=False)
+    {
+        if(!$id){
+            $this->PrettyPrintToJSON(Array());
+            return json_encode(Array());
+        }
+        $this->db->select('*')
+        ->from('artist')
+        ->where('BandID', $id);
+        $query = $this->db->get();     
+        return json_encode($query->result());
+    }
+    public function GetRodiesByBandID($id=False)
+    {
+        if(!$id){
+            $this->PrettyPrintToJSON(Array());
+            return json_encode(Array());
+        }
+        $this->db->select('*')
+        ->from('rodie')
+        ->where('BandID', $id);
+        $query = $this->db->get();
+        return json_encode($query->result());
+    }
     
 }

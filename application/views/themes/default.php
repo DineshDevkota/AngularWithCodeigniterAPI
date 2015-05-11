@@ -119,8 +119,8 @@ echo "\n\t";
 				<div style="height: 0px;" class="nav-collapse collapse">
 					<ul class="nav">
 
-						<li class="active"><a href="/db/warpedtour">Warped Tour</a></li>
-						<li class="active"><a href="/db/artist">Artist</a></li>						
+						<li class="active"><a href="/db/warpedtour">Warped Tours</a></li>
+						<li class="active"><a href="/db/artist">Our Artists</a></li>						
 						<li class="active"><a href="/db/sponsor">Our Sponsors</a></li>						
 						<li class="active"><a href="/db/proview">Pro View</a></li>
 					</ul>

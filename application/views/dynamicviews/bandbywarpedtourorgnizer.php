@@ -24,7 +24,13 @@
 								<td><?php echo $value->BandName;?></td>
 								<td><?php echo $value->GenreName;?></td>								
 								<td><a class="btn btn-info"
-									href='/db/GetAlbumsByBandID/<?php echo $value->BandID;?>'>Albums</a></td>
+									href='/db/GetAlbumsByBandID/<?php echo $value->BandID;?>'>Albums</a>
+									<a class="btn btn-primary"
+									href='/db/GetRodiesByBandID/<?php echo $value->BandID;?>'>Rodies</a>
+									<a class="btn btn-success"
+									href='/db/GetArtistByBandID/<?php echo $value->BandID;?>'>Artists</a>
+									</td>
+									
 							 </tr>                                                
                              <?php  }?>                                             
                        </tbody>

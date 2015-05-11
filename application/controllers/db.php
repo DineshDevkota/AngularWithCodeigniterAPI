@@ -122,4 +122,24 @@ class db extends CI_Controller {
 	         $this->load->view('dynamicviews/BandsByStageID',$viewvalue);
 	     }
 	 }
+	 public function GetArtistByBandID($id=false){
+	     if(!$id){
+	         show_404();
+	     }else{
+	         $data=json_decode($this->ConectDB->GetArtistByBandID($id));
+	         $viewvalue=array('data'=>$data);
+	         $this->load->view('dynamicviews/ArtistByBandID',$viewvalue);
+	     }
+	 }
+	 public function GetRodiesByBandID($id=false){
+	     if(!$id){
+	         show_404();
+	     }else{
+	         $data=json_decode($this->ConectDB->GetRodiesByBandID($id));
+	         $viewvalue=array('data'=>$data);
+	         $this->load->view('dynamicviews/RodiesByBandID',$viewvalue);
+	     }
+	 }
+	 
+	 
 }
